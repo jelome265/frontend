@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#201a16">
+  <meta name="description" content="Explore Bean Boutique's small-batch coffee blends and single-origin coffees, with tasting notes and brewing suggestions.">
+  <title>Coffee Collection | Bean Boutique</title>
+  <link rel="icon" type="image/svg+xml" href="asserts/images/bean-mark.svg">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/main.js" defer></script>
+</head>
+<body class="page-coffee" id="top">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="announcement-bar">Small-batch coffee. Thoughtfully sourced. <a href="subscriptions.html">Explore this month's offers <span aria-hidden="true">→</span></a></div>
+  <header class="site-header">
+    <div class="header-main container">
+      <a class="brand" href="index.html" aria-label="Bean Boutique home"><img class="brand-mark" src="asserts/images/bean-mark.svg" alt=""><span class="brand-name">BEAN <span>BOUTIQUE</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span class="menu-toggle-lines" aria-hidden="true"></span><span class="menu-toggle-label">Menu</span></button>
+      <nav class="primary-nav" id="site-navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a><a href="coffee.html" aria-current="page">Coffee</a><a href="equipment.html">Equipment</a><a href="events.html">Events</a><a href="subscriptions.html">Subscriptions</a><a class="nav-bag" href="cart.html">Your bag <span class="cart-count" data-cart-count aria-live="polite">0</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="page-hero container">
+      <div>
+        <p class="eyebrow">The coffee collection / 01</p>
+        <h1>Every cup has <em>a story.</em></h1>
+        <p>From bright and lively to deep and comforting, find the coffee that feels like yours.</p>
+      </div>
+      <img src="asserts/images/coffee-beans.svg" alt="Illustration of roasted coffee beans" loading="lazy">
+    </section>
+
+    <section class="section container catalogue-section">
+      <div class="catalogue-toolbar">
+        <div>
+          <p class="eyebrow">Roasted in small batches</p>
+          <h2>Choose your <em>cup.</em></h2>
+        </div>
+        <div class="catalogue-controls">
+          <label class="search-field">
+            <span class="visually-hidden">Search the coffee collection</span>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="product-search" type="search" placeholder="Search blends, notes, origins..." autocomplete="off">
+            <span class="search-cursor" aria-hidden="true"></span>
+          </label>
+          <label class="filter-label" for="coffee-filter">Filter</label>
+          <select id="coffee-filter">
+            <option value="all">All coffees</option>
+            <option value="blend">Blends</option>
+            <option value="single-origin">Single origin</option>
+            <option value="decaf">Decaf</option>
+          </select>
+        </div>
+      </div>
+      <div class="catalogue-meta"><p id="search-results" aria-live="polite">Showing 4 coffees</p><p class="prototype-note">Illustrative products and MWK prices for this prototype.</p></div>
+      <div class="product-grid" id="coffee-grid">
+        <article class="product-card" data-product-card data-product-id="mzuzu-highlands" data-category="single-origin" data-search="Mzuzu Highlands Malawi single origin red apple cocoa orange peel balanced filter pour over">
+          <a class="product-image" href="#mzuzu-highlands"><img src="asserts/images/coffee-beans.svg" alt="Illustrated coffee beans" loading="lazy"><span class="product-tag">Single origin</span></a>
+          <div class="product-info">
+            <p class="product-origin">MALAWI / LIGHT-MEDIUM</p><h3 id="mzuzu-highlands">Mzuzu Highlands</h3>
+            <p class="product-description">A bright, balanced cup with red apple, cocoa and orange peel notes.</p>
+            <p class="product-brew"><strong>Try it:</strong> Pour-over · 92–94°C</p>
+            <div class="product-buy"><span class="product-price">MWK 18,500 <small>/ 250g</small></span><button class="button button-small" type="button" data-add-to-cart data-product-id="mzuzu-highlands">Add to bag</button></div>
+          </div>
+        </article>
+        <article class="product-card" data-product-card data-product-id="shire-espresso" data-category="blend" data-search="Shire Espresso house blend chocolate hazelnut brown sugar espresso moka pot">
+          <a class="product-image image-tone-espresso" href="#shire-espresso"><img src="asserts/images/coffee-beans.svg" alt="Illustrated roasted coffee beans" loading="lazy"><span class="product-tag">House blend</span></a>
+          <div class="product-info">
+            <p class="product-origin">HOUSE BLEND / MEDIUM-DARK</p><h3 id="shire-espresso">Shire Espresso</h3>
+            <p class="product-description">Round and dependable, with dark chocolate, toasted hazelnut and brown sugar.</p>
+            <p class="product-brew"><strong>Try it:</strong> Espresso · Moka pot</p>
+            <div class="product-buy"><span class="product-price">MWK 20,000 <small>/ 250g</small></span><button class="button button-small" type="button" data-add-to-cart data-product-id="shire-espresso">Add to bag</button></div>
+          </div>
+        </article>
+        <article class="product-card" data-product-card data-product-id="nyika-natural" data-category="single-origin" data-search="Nyika Natural seasonal single origin berry apricot cocoa aeropress filter">
+          <a class="product-image image-tone-natural" href="#nyika-natural"><img src="asserts/images/coffee-beans.svg" alt="Illustrated coffee beans" loading="lazy"><span class="product-tag">Seasonal</span></a>
+          <div class="product-info">
+            <p class="product-origin">SEASONAL / MEDIUM</p><h3 id="nyika-natural">Nyika Natural</h3>
+            <p class="product-description">A fruit-forward profile of ripe berries, dried apricot and soft cocoa.</p>
+            <p class="product-brew"><strong>Try it:</strong> AeroPress · Filter</p>
+            <div class="product-buy"><span class="product-price">MWK 22,000 <small>/ 250g</small></span><button class="button button-small" type="button" data-add-to-cart data-product-id="nyika-natural">Add to bag</button></div>
+          </div>
+        </article>
+        <article class="product-card" data-product-card data-product-id="kuche-decaf" data-category="decaf" data-search="Kuche Decaf decaffeinated cocoa toasted almond comfort espresso filter">
+          <a class="product-image image-tone-decaf" href="#kuche-decaf"><img src="asserts/images/coffee-beans.svg" alt="Illustrated roasted coffee beans" loading="lazy"><span class="product-tag">Decaf</span></a>
+          <div class="product-info">
+            <p class="product-origin">DECAF / MEDIUM</p><h3 id="kuche-decaf">Kuche Decaf</h3>
+            <p class="product-description">A comforting, easy-drinking cup with cocoa, toasted almond and caramel.</p>
+            <p class="product-brew"><strong>Try it:</strong> French press · Espresso</p>
+            <div class="product-buy"><span class="product-price">MWK 21,000 <small>/ 250g</small></span><button class="button button-small" type="button" data-add-to-cart data-product-id="kuche-decaf">Add to bag</button></div>
+          </div>
+        </article>
+      </div>
+      <div class="no-results" id="no-results" hidden><h3>No coffees found.</h3><p>Try another search term or clear the filter.</p><button class="button button-outline" type="button" id="clear-search">Clear search</button></div>
+    </section>
+
+    <section class="section brew-note-band">
+      <div class="container brew-note-content">
+        <div><p class="eyebrow">Not sure where to start?</p><h2>Let's find your <em>brew method.</em></h2></div>
+        <p>Tell us how you like your coffee and we'll point you toward a blend and a brewing method to try.</p>
+        <a class="button button-light" href="events.html">Join a tasting session <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand"><a class="brand brand-footer" href="index.html"><img class="brand-mark" src="asserts/images/bean-mark.svg" alt=""><span class="brand-name">BEAN <span>BOUTIQUE</span></span></a><p>Thoughtful coffee for curious people. Come as you are; stay for another cup.</p></div>
+      <div class="footer-links"><h2>Explore</h2><a href="coffee.html">Coffee collection</a><a href="equipment.html">Brewing equipment</a><a href="events.html">Events and workshops</a><a href="subscriptions.html">Offers and subscriptions</a></div>
+      <div class="footer-links"><h2>Say hello</h2><a href="mailto:hello@beanboutique.example">hello@beanboutique.example</a><a href="https://www.instagram.com/explore/tags/specialtycoffee/" target="_blank" rel="noopener noreferrer">Coffee community on Instagram ↗</a><span class="footer-note">Replace example contact details before launch.</span></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-current-year>2026</span> Bean Boutique. Prototype concept.</span><span>Made with care, brewed with patience.</span></div>
+  </footer>
+</body>
+</html>
