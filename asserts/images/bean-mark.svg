@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Bean Boutique bean mark</title>
+  <circle cx="48" cy="48" r="45" fill="#58634b"/>
+  <path d="M65 20C47 19 26 34 22 52c-3 15 7 25 21 24 17-2 31-21 31-38 0-10-3-16-9-18Z" fill="#e8c29f"/>
+  <path d="M66 24C49 31 39 45 35 69" fill="none" stroke="#8c4b33" stroke-linecap="round" stroke-width="5"/>
+</svg>
