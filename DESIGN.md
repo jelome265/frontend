@@ -4,7 +4,7 @@
 
 ## Status
 
-This documents the incumbent visual system from the source code on `main`. It is a preservation baseline, not a new brand direction. A rendered desktop/mobile audit has not yet been completed.
+This documents the incumbent visual system, updated by the refinement pass recorded in `docs/CHANGELOG.md`. It remains a preservation baseline, not a new brand direction. Desktop and mobile renders were captured and checked in headless Chromium (see `docs/verification-report.md`); a real-device audit has not been done.
 
 ## Product Surface
 
@@ -25,11 +25,12 @@ The current source values are the authority until intentionally revised:
 | Token | Value | Role |
 |---|---|---|
 | `--ink` | `#241d18` | Primary text and dark controls |
-| `--muted` | `#756b62` | Secondary text |
+| `--muted` | `#6b6158` | Secondary text (darkened for WCAG AA) |
 | `--cream` | `#f7f3eb` | Page background |
 | `--paper` | `#fffdf8` | Raised content surfaces |
 | `--sand` | `#e9dfd1` | Secondary surfaces |
-| `--clay` | `#b96f4a` | Accent |
+| `--clay` | `#b96f4a` | Accent (decorative; not for text on light surfaces) |
+| `--clay-ink` | `#9a5436` | Clay for text on light surfaces (WCAG AA) |
 | `--rust` | `#8c4b33` | Strong accent / emphasis |
 | `--olive` | `#58634b` | Supporting accent |
 | `--line` | `rgba(36, 29, 24, .15)` | Dividers and borders |
@@ -78,7 +79,7 @@ The current source values are the authority until intentionally revised:
 
 ## Known Verification Gaps
 
-- Browser-rendered desktop/mobile screenshots and the Taste Skill browser inspection are not yet available.
-- Actual contrast ratios have not been measured.
-- The SVG asset register is incomplete.
+- Taste Skill's Chrome-based checker gate has not been run.
+- Real-device touch testing has not been done.
+- The SVG asset register is in `docs/asset-register.md`; ownership of the SVGs still needs written confirmation.
 - HTML/CSS validator, screen-reader and two-browser evidence remains outstanding per the assignment brief.

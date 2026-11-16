@@ -54,6 +54,14 @@ Open [http://localhost:8000](http://localhost:8000) in a browser. Use an HTTP se
 
 The `asserts/` directory spelling follows the requested project structure. The illustrations are original local SVG assets. System font stacks are used so no font downloads or third-party font files are required.
 
+## Design documentation
+
+- [PRODUCT.md](PRODUCT.md) and [DESIGN.md](DESIGN.md): product context and the visual system.
+- [docs/design-decisions.md](docs/design-decisions.md): how the Impeccable, Taste and Apple Design guidance was applied, and what was not.
+- [docs/asset-register.md](docs/asset-register.md): every image, font and third-party embed, with status.
+- [docs/verification-report.md](docs/verification-report.md): what was checked, the results, and what remains outstanding.
+- [docs/CHANGELOG.md](docs/CHANGELOG.md): the latest design refinement pass.
+
 ## Prototype integrations
 
 1. **OpenStreetMap** — embedded map panel. The shown Lilongwe-area view is illustrative only; replace it with the verified shop and event venue coordinates.
