@@ -714,3 +714,22 @@ h3 { margin-bottom: 10px; font-family: var(--serif); font-size: 1.7rem; font-wei
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .ticker-track { animation: none; }
 }
+
+
+/* Accessible confirmation toast for cart actions */
+.site-toast {
+  position: fixed;
+  z-index: 500;
+  right: 22px;
+  bottom: 22px;
+  max-width: min(360px, calc(100% - 44px));
+  padding: 14px 18px;
+  color: white;
+  background: var(--ink);
+  border-left: 3px solid #d6a17d;
+  box-shadow: 0 12px 35px rgba(22, 16, 11, .25);
+  font-size: 12px;
+  animation: toast-in .22s ease both;
+}
+.site-toast-dismiss { opacity: 0; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
