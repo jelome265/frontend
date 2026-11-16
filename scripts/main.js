@@ -579,9 +579,28 @@
     });
   }
 
+  function initialiseTickerToggle() {
+    const toggle = document.querySelector("[data-ticker-toggle]");
+    const track = document.querySelector(".ticker-track");
+    if (!toggle || !track) return;
+    const reduceMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      track.classList.add("is-paused");
+      toggle.setAttribute("aria-pressed", "true");
+      toggle.textContent = "Play";
+    }
+    toggle.addEventListener("click", function () {
+      const paused = track.classList.toggle("is-paused");
+      toggle.setAttribute("aria-pressed", String(paused));
+      toggle.textContent = paused ? "Play" : "Pause";
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initialiseNavigation();
     initialiseCarousel();
+    initialiseTickerToggle();
     initialiseCoffeeSearch();
     initialiseCartActions();
     initialiseWelcomeModal();
