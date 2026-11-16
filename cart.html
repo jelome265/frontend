@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#201a16">
+  <meta name="description" content="Review the coffee and brewing equipment in your Bean Boutique shopping bag.">
+  <title>Your Bag | Bean Boutique</title>
+  <link rel="icon" type="image/svg+xml" href="asserts/images/bean-mark.svg">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/main.js" defer></script>
+</head>
+<body class="page-cart" id="top">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="announcement-bar">Small-batch coffee. Thoughtfully sourced. <a href="coffee.html">Find your next coffee <span aria-hidden="true">→</span></a></div>
+  <header class="site-header"><div class="header-main container">
+    <a class="brand" href="index.html" aria-label="Bean Boutique home"><img class="brand-mark" src="asserts/images/bean-mark.svg" alt=""><span class="brand-name">BEAN <span>BOUTIQUE</span></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span class="menu-toggle-lines" aria-hidden="true"></span><span class="menu-toggle-label">Menu</span></button>
+    <nav class="primary-nav" id="site-navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="coffee.html">Coffee</a><a href="equipment.html">Equipment</a><a href="events.html">Events</a><a href="subscriptions.html">Subscriptions</a><a class="nav-bag" href="cart.html" aria-current="page">Your bag <span class="cart-count" data-cart-count aria-live="polite">0</span></a></nav>
+  </div></header>
+  <main id="main-content">
+    <section class="page-hero page-hero-compact container"><div><p class="eyebrow">Your selections / 04</p><h1>Your bag, <em>your brew.</em></h1><p>Review your selection before continuing. Your bag is saved in this browser for this prototype.</p></div><img src="asserts/images/coffee-beans.svg" alt="Illustration of roasted coffee beans" loading="lazy"></section>
+    <section class="section container cart-section">
+      <div class="cart-layout">
+        <div class="cart-main">
+          <div class="cart-heading"><div><p class="eyebrow">A few good choices</p><h2>Your <em>basket.</em></h2></div><button class="text-button" type="button" data-clear-cart>Clear bag</button></div>
+          <div id="cart-items" class="cart-items" aria-live="polite">
+            <div class="empty-cart"><p class="empty-cart-mark" aria-hidden="true">◎</p><h3>Your bag is waiting.</h3><p>Find a coffee or a tool to get started.</p><a class="button button-dark" href="coffee.html">Explore coffee</a></div>
+          </div>
+        </div>
+        <aside class="cart-summary" aria-labelledby="summary-title">
+          <p class="eyebrow">The details</p><h2 id="summary-title">Order <em>summary.</em></h2>
+          <div class="summary-line"><span>Items</span><strong id="cart-item-count">0</strong></div>
+          <div class="summary-line"><span>Subtotal</span><strong id="cart-subtotal">MWK 0</strong></div>
+          <div class="summary-line"><span>Delivery</span><span>Calculated later</span></div>
+          <div class="summary-total"><span>Estimated total</span><strong id="cart-total">MWK 0</strong></div>
+          <button class="button button-dark button-full" type="button" data-checkout disabled>Continue to checkout <span aria-hidden="true">↗</span></button>
+          <p class="summary-note">Prototype checkout only. No payment is collected. The email handoff uses a placeholder recipient that must be replaced before launch.</p>
+          <div class="secure-note"><span aria-hidden="true">◇</span><span>Secure payment processing is not connected in this prototype.</span></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-main"><div class="footer-brand"><a class="brand brand-footer" href="index.html"><img class="brand-mark" src="asserts/images/bean-mark.svg" alt=""><span class="brand-name">BEAN <span>BOUTIQUE</span></span></a><p>Thoughtful coffee for curious people. Come as you are; stay for another cup.</p></div><div class="footer-links"><h2>Explore</h2><a href="coffee.html">Coffee collection</a><a href="equipment.html">Brewing equipment</a><a href="events.html">Events and workshops</a><a href="subscriptions.html">Offers and subscriptions</a></div><div class="footer-links"><h2>Say hello</h2><a href="mailto:hello@beanboutique.example">hello@beanboutique.example</a><span class="footer-note">Replace example contact details before launch.</span></div></div>
+    <div class="container footer-bottom"><span>© <span data-current-year>2026</span> Bean Boutique. Prototype concept.</span><span>Made with care, brewed with patience.</span></div>
+  </footer>
+</body>
+</html>
