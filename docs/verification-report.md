@@ -58,3 +58,10 @@ This report separates what was run from what was not. Items marked **Not run** a
 - Real-device touch gesture testing. The carousel is button-driven, so no custom drag gesture was added or tested.
 - Impeccable Taste/Apple checker gate (Taste's Chrome-based checker was not executed; its design rules were reviewed against this prototype's preservation boundaries, see `docs/design-decisions.md`).
 - Assessment deliverables (500-word test report, 750-word critical evaluation, screenshot evidence of amendments). These require the business and assessor context and are not drafted here.
+
+## Update: assignment brief alignment pass
+
+- W3C HTML/CSS check run with the Nu HTML Checker (the engine behind validator.w3.org): 0 errors, 0 warnings across all six pages and the stylesheet. Earlier html-validate runs did not catch the two invalid iframe widths found here.
+- Find bar tested on all six pages: highlighting, match count and clear all work.
+- Functional smoke test (headless Chromium): cart holds coffees and the espresso machine; events form fields are first name, last name, email and session; no page errors. The one console error is an offline DNS failure for an external embed.
+- Still not run: screen readers, a second browser, a mobile browser, and the online W3C service itself.

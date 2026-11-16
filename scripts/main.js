@@ -22,6 +22,30 @@
       detail: "250g coffee · seasonal single origin",
       image: "asserts/images/coffee-beans.svg"
     },
+    "dedza-washed": {
+      name: "Dedza Washed",
+      price: 17000,
+      detail: "250g coffee · Malawi single origin",
+      image: "asserts/images/coffee-beans.svg"
+    },
+    "zomba-honey": {
+      name: "Zomba Honey",
+      price: 19000,
+      detail: "250g coffee · Malawi single origin",
+      image: "asserts/images/coffee-beans.svg"
+    },
+    "lake-blend": {
+      name: "Lake Blend",
+      price: 18000,
+      detail: "250g coffee · house blend",
+      image: "asserts/images/coffee-beans.svg"
+    },
+    "espresso-machine": {
+      name: "Home Espresso Machine",
+      price: 350000,
+      detail: "Single unit · illustrative price",
+      image: "asserts/images/espresso-machine.svg"
+    },
     "kuche-decaf": {
       name: "Kuche Decaf",
       price: 21000,
@@ -597,10 +621,116 @@
     });
   }
 
+  function initialisePageFind() {
+    const form = document.querySelector("[data-page-find]");
+    const main = document.getElementById("main-content");
+    if (!form || !main) return;
+    const input = form.querySelector("input");
+    const status = form.querySelector("[data-find-status]");
+    const prev = form.querySelector("[data-find-prev]");
+    const next = form.querySelector("[data-find-next]");
+    const SKIP = { SCRIPT: 1, STYLE: 1, NOSCRIPT: 1, INPUT: 1, TEXTAREA: 1, SELECT: 1, BUTTON: 1, IFRAME: 1, MARK: 1 };
+    let hits = [];
+    let current = -1;
+
+    function clearHits() {
+      document.querySelectorAll("mark.find-hit").forEach(function (mark) {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+      hits = [];
+      current = -1;
+    }
+
+    function wrapMatches(term) {
+      const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+        acceptNode: function (node) {
+          let el = node.parentNode;
+          while (el && el !== main) {
+            if (SKIP[el.nodeName] || el.hidden) return NodeFilter.FILTER_REJECT;
+            el = el.parentNode;
+          }
+          return node.nodeValue.toLocaleLowerCase().indexOf(term) !== -1
+            ? NodeFilter.FILTER_ACCEPT
+            : NodeFilter.FILTER_REJECT;
+        }
+      });
+      const textNodes = [];
+      while (walker.nextNode()) textNodes.push(walker.currentNode);
+      textNodes.forEach(function (node) {
+        const text = node.nodeValue;
+        const lower = text.toLocaleLowerCase();
+        let index = 0;
+        const fragment = document.createDocumentFragment();
+        let found = lower.indexOf(term, index);
+        while (found !== -1) {
+          if (found > index) fragment.appendChild(document.createTextNode(text.slice(index, found)));
+          const mark = document.createElement("mark");
+          mark.className = "find-hit";
+          mark.textContent = text.slice(found, found + term.length);
+          fragment.appendChild(mark);
+          hits.push(mark);
+          index = found + term.length;
+          found = lower.indexOf(term, index);
+        }
+        if (index < text.length) fragment.appendChild(document.createTextNode(text.slice(index)));
+        node.parentNode.replaceChild(fragment, node);
+      });
+    }
+
+    function focusHit(index) {
+      if (!hits.length) return;
+      if (current >= 0) hits[current].classList.remove("is-current");
+      current = (index + hits.length) % hits.length;
+      const target = hits[current];
+      target.classList.add("is-current");
+      target.scrollIntoView({ block: "center" });
+      if (status) status.textContent = "Match " + (current + 1) + " of " + hits.length;
+    }
+
+    function runSearch() {
+      clearHits();
+      const term = input.value.trim().toLocaleLowerCase();
+      if (term.length < 2) {
+        if (status) status.textContent = term ? "Type at least two characters." : "";
+        prev.disabled = next.disabled = true;
+        return;
+      }
+      wrapMatches(term);
+      const count = hits.length;
+      prev.disabled = next.disabled = count === 0;
+      if (count === 0) {
+        if (status) status.textContent = "No matches on this page.";
+        return;
+      }
+      focusHit(0);
+    }
+
+    let debounce = null;
+    input.addEventListener("input", function () {
+      clearTimeout(debounce);
+      debounce = setTimeout(runSearch, 180);
+    });
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (!hits.length) runSearch(); else focusHit(current + 1);
+    });
+    prev.addEventListener("click", function () { focusHit(current - 1); });
+    form.querySelector("[data-find-clear]").addEventListener("click", function () {
+      input.value = "";
+      clearHits();
+      if (status) status.textContent = "";
+      prev.disabled = next.disabled = true;
+      input.focus();
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initialiseNavigation();
     initialiseCarousel();
     initialiseTickerToggle();
+    initialisePageFind();
     initialiseCoffeeSearch();
     initialiseCartActions();
     initialiseWelcomeModal();
