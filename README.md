@@ -19,7 +19,7 @@ Open [http://localhost:8000](http://localhost:8000) in a browser. Use an HTTP se
 | Page | File | Main behaviour |
 | --- | --- | --- |
 | Home | `index.html` | Hero, responsive navigation, featured-content carousel, first-visit discount dialog, map and Spotify embeds |
-| Coffee selection | `coffee.html` | Product catalogue, animated search feedback, category filter and add-to-bag actions |
+| Coffee selection | `coffee.html` | Product catalogue, animated search feedback, category filter, add-to-bag actions, Spotify playlist and OpenStreetMap widgets |
 | Brewing equipment | `equipment.html` | Equipment catalogue with descriptions and usage tips |
 | Shopping cart | `cart.html` | Quantity changes, removal, totals and browser-local persistence |
 | Events and workshops | `events.html` | Upcoming sample events, responsive registration form, email handoff, OpenStreetMap and Cloudflare Turnstile demo |
