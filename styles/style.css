@@ -726,6 +726,23 @@ h3 { margin-bottom: 10px; font-family: var(--serif); font-size: 1.7rem; font-wei
 }
 
 
+/* On-page find: search bar shared by all six pages */
+.page-find { padding-top: 22px; }
+.page-find-form { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.page-find-label { color: var(--muted); font-size: 0.75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.page-find-field { position: relative; display: flex; flex: 1 1 260px; max-width: 420px; border-bottom: 1px solid rgba(36,29,24,.45); }
+.page-find-field::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: var(--clay-ink); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease-out); }
+.page-find-field:focus-within::after { transform: scaleX(1); }
+.page-find-field input { width: 100%; min-height: 44px; padding: 8px 4px; color: var(--ink); background: transparent; border: 0; border-radius: 0; outline: 0; font-size: 0.875rem; }
+.page-find-field input:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
+.page-find-nav { display: flex; align-items: center; gap: 8px; }
+.page-find-nav .icon-button { width: 44px; height: 44px; }
+.page-find-nav .icon-button:disabled { opacity: .4; cursor: not-allowed; }
+.page-find-status { flex-basis: 100%; min-height: 1.4em; margin: 0; color: var(--muted); font-size: 0.8125rem; }
+mark.find-hit { padding: 0 2px; color: var(--ink); background: #f6dcc4; border-radius: 2px; animation: find-in .45s var(--ease-out) both; }
+mark.find-hit.is-current { color: white; background: var(--clay-ink); box-shadow: 0 0 0 3px rgba(154,84,54,.22); }
+@keyframes find-in { from { background-color: transparent; color: inherit; } }
+
 /* Accessible confirmation toast for cart actions */
 .site-toast {
   position: fixed;

@@ -1,5 +1,14 @@
 # Changelog
 
+## Assignment brief alignment (2026-11-16)
+
+- Equipment range now runs from espresso machine to French press (`espresso-machine.svg` added).
+- Coffee catalogue expanded from 4 to 7 products; category filter and search cover them.
+- On-page find bar added to all six pages, with animated highlighting and previous/next navigation. Keyboard and screen-reader status supported.
+- Fixed W3C Nu HTML Checker errors: two `width="100%"` attributes on iframes, one headingless section.
+- Doctype and form submit-button warnings resolved; trailing whitespace removed.
+- No `style` attributes, no `<style>` elements, no inline scripts. All JavaScript in `scripts/`, all CSS in `styles/`.
+
 ## Design refinement pass (2026-11-16)
 
 ### Accessibility

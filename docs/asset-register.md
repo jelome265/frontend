@@ -4,7 +4,7 @@ Every image, font and third-party embed in the Bean Boutique prototype, with its
 
 ## Local images (`asserts/images/`)
 
-All six files are SVG, contain no `<text>` elements and reference no external resources (the only URL is the SVG namespace). They were created for this prototype, as stated in `asserts/images/README.md`.
+All seven files are SVG, contain no `<text>` elements and reference no external resources (the only URL is the SVG namespace). They were created for this prototype, as stated in `asserts/images/README.md`.
 
 | File | Used on | Purpose | Bytes | Source | Licence / status |
 | --- | --- | --- | --- | --- | --- |
@@ -14,6 +14,7 @@ All six files are SVG, contain no `<text>` elements and reference no external re
 | `brewing-tools.svg` | `index.html`, `equipment.html` | Equipment card | 2362 | Created for this prototype | As above |
 | `coffee-community.svg` | `index.html`, `events.html` | Events card | 2512 | Created for this prototype | As above |
 | `grinder.svg` | `equipment.html` | Grinder product | 1799 | Created for this prototype | As above |
+| `espresso-machine.svg` | `equipment.html` | Espresso machine (added for the brief's espresso-to-French-press range) | see file | Created for this prototype, original vector drawing | As above |
 
 Stand-in product imagery: product cards reuse the same illustrations under different background tones. No photography is included. Real product photography requires shop-supplied images with recorded licence and attribution.
 

@@ -20,6 +20,22 @@
     <nav class="primary-nav" id="site-navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="coffee.html">Coffee</a><a href="equipment.html">Equipment</a><a href="events.html" aria-current="page">Events</a><a href="subscriptions.html">Subscriptions</a><a class="nav-bag" href="cart.html">Your bag <span class="cart-count" data-cart-count aria-live="polite">0</span></a></nav>
   </div></header>
   <main id="main-content">
+
+    <section class="page-find container" aria-label="Find on this page">
+      <form class="page-find-form" role="search" data-page-find>
+        <label class="page-find-label" for="page-find-input">Find on this page</label>
+        <div class="page-find-field">
+          <input id="page-find-input" type="search" autocomplete="off" placeholder="Search this page…">
+
+        </div>
+        <div class="page-find-nav">
+          <button class="icon-button" type="button" data-find-prev aria-label="Previous match" disabled>↑</button>
+          <button class="icon-button" type="submit" data-find-next aria-label="Next match" disabled>↓</button>
+          <button class="text-button" type="button" data-find-clear>Clear</button>
+        </div>
+        <p class="page-find-status" data-find-status role="status" aria-live="polite"></p>
+      </form>
+    </section>
     <section class="page-hero container"><div><h1>Pull up a chair. <em>Stay curious.</em></h1><p>Good coffee makes a good starting point. Join us for tastings, practical sessions and conversations with people who love the craft.</p></div><img src="asserts/images/coffee-community.svg" alt="Illustration of people sharing coffee around a table" loading="lazy"></section>
 
     <section class="section container">
