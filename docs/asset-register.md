@@ -20,7 +20,18 @@ Stand-in product imagery: product cards reuse the same illustrations under diffe
 
 ## Fonts
 
-No font files are bundled. The stylesheet uses system stacks only (`Georgia`, `Times New Roman`, `Aptos`, `Segoe UI`, `Arial`). See `asserts/fonts/README.md`.
+Self-hosted, SIL Open Font License 1.1 (licence texts in `asserts/fonts/`):
+
+| File | Family | Use |
+| --- | --- | --- |
+| `archivo-latin-wght.woff2` | Archivo (variable weight) | Display and body |
+| `martian-mono-latin-400.woff2`, `-500`, `-700` | Martian Mono | Data only: scores, prices, dates, times |
+
+Source: `@fontsource-variable/archivo` and `@fontsource/martian-mono` (npm). Redistribution is permitted under the OFL.
+
+## Drawn icons
+
+All arrows, the close mark, the search glyph and decorative dots are drawn in CSS (`styles/style.css`). No icon font or unicode glyph is used as an icon.
 
 ## Third-party embeds
 

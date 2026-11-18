@@ -3,61 +3,90 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#201a16">
-  <meta name="description" content="Discover Bean Boutique's sample coffee subscriptions and introductory offers.">
+  <meta name="theme-color" content="#1f3fbf">
+  <meta name="description" content="Special offers and coffee subscription plans from Bean Boutique, with clear benefits for each level.">
   <title>Offers and Subscriptions | Bean Boutique</title>
   <link rel="icon" type="image/svg+xml" href="asserts/images/bean-mark.svg">
+  <link rel="preload" href="asserts/fonts/archivo-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles/style.css">
   <script src="scripts/main.js" defer></script>
 </head>
 <body class="page-subscriptions" id="top">
   <a class="skip-link" href="#main-content">Skip to content</a>
-  <div class="announcement-bar">Small-batch coffee. Thoughtfully sourced. <a href="coffee.html">Explore the collection <span aria-hidden="true">→</span></a></div>
-  <header class="site-header"><div class="header-main container">
-    <a class="brand" href="index.html" aria-label="Bean Boutique home"><img class="brand-mark" src="asserts/images/bean-mark.svg" alt=""><span class="brand-name">BEAN <span>BOUTIQUE</span></span></a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span class="menu-toggle-lines" aria-hidden="true"></span><span class="menu-toggle-label">Menu</span></button>
-    <nav class="primary-nav" id="site-navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="coffee.html">Coffee</a><a href="equipment.html">Equipment</a><a href="events.html">Events</a><a href="subscriptions.html" aria-current="page">Subscriptions</a><a class="nav-bag" href="cart.html">Your bag <span class="cart-count" data-cart-count aria-live="polite">0</span></a></nav>
-  </div></header>
-  <main id="main-content">
+  <div class="announcement-bar">
+    <span>Small-batch coffee. Thoughtfully sourced.</span>
+    <a href="subscriptions.html">Explore this month's offers <span class="arrow arrow-r" aria-hidden="true"></span></a>
+  </div>
 
+  <header class="site-header">
+    <div class="header-main container">
+      <a class="brand" href="index.html" aria-label="Bean Boutique home">
+        <img class="brand-mark" src="asserts/images/bean-mark.svg" alt="">
+        <span class="brand-name">BEAN <span>BOUTIQUE</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+        <span class="menu-toggle-lines" aria-hidden="true"></span>
+        <span class="menu-toggle-label">Menu</span>
+      </button>
+      <nav class="primary-nav" id="site-navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="coffee.html">Coffee</a>
+        <a href="equipment.html">Equipment</a>
+        <a href="events.html">Events</a>
+        <a href="subscriptions.html" aria-current="page">Subscriptions</a>
+        <a class="nav-bag" href="cart.html">Your bag <span class="cart-count" data-cart-count aria-live="polite">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
     <section class="page-find container" aria-label="Find on this page">
       <form class="page-find-form" role="search" data-page-find>
         <label class="page-find-label" for="page-find-input">Find on this page</label>
-        <div class="page-find-field">
-          <input id="page-find-input" type="search" autocomplete="off" placeholder="Search this page…">
-
-        </div>
+        <div class="page-find-field"><input id="page-find-input" type="search" autocomplete="off" placeholder="Search this page…"></div>
         <div class="page-find-nav">
-          <button class="icon-button" type="button" data-find-prev aria-label="Previous match" disabled>↑</button>
-          <button class="icon-button" type="submit" data-find-next aria-label="Next match" disabled>↓</button>
+          <button class="icon-button" type="button" data-find-prev aria-label="Previous match" disabled><span class="arrow arrow-u" aria-hidden="true"></span></button>
+          <button class="icon-button" type="submit" data-find-next aria-label="Next match" disabled><span class="arrow arrow-d" aria-hidden="true"></span></button>
           <button class="text-button" type="button" data-find-clear>Clear</button>
         </div>
         <p class="page-find-status" data-find-status role="status" aria-live="polite"></p>
       </form>
     </section>
-    <section class="page-hero container"><div><h1>A little more coffee. <em>A little less thinking.</em></h1><p>Keep the cupboard ready with a recurring delivery shaped around your pace and your favourite kind of cup.</p></div><img src="asserts/images/coffee-beans.svg" alt="Illustration of freshly roasted coffee beans" loading="lazy"></section>
-
-    <section class="section container offers-section">
-      <div class="offer-banner"><div><h2>Your first bag is <em>10% off.</em></h2><p>Join the mailing list in the welcome pop-up for the prototype offer. Terms, eligibility and expiry must be confirmed before launch.</p></div><a class="button button-light" href="coffee.html">Shop coffee <span aria-hidden="true">↗</span></a></div>
+    <section class="page-hero container">
+      <div>
+        <h1>A little more coffee. <em>A little less thinking.</em></h1>
+        <p>Keep the cupboard ready with a recurring delivery shaped around your pace and your favourite kind of cup.</p>
+      </div>
+      <div class="page-hero-art"><img src="asserts/images/coffee-beans.svg" alt="Illustration of freshly roasted coffee beans" loading="lazy"></div>
     </section>
 
     <section class="section container">
-      <div class="section-heading"><h2>Subscriptions that <em>make sense.</em></h2><p class="section-intro-copy">Select a sample tier to add it to your bag. Real subscriptions would require a recurring billing and fulfilment service.</p></div>
+      <div class="offer-banner">
+        <div><h2>Your first bag is <em>10% off.</em></h2><p>Join the mailing list in the welcome pop-up for the prototype offer. Terms, eligibility and expiry must be confirmed before launch.</p></div>
+        <a class="button button-light" href="coffee.html">Shop coffee <span class="arrow" aria-hidden="true"></span></a>
+      </div>
+    </section>
+
+    <section class="section-tight container">
+      <div class="section-heading">
+        <h2>Subscriptions that <em>make sense.</em></h2>
+        <p class="section-intro-copy">Select a sample tier to add it to your bag. Real subscriptions would require a recurring billing and fulfilment service.</p>
+      </div>
       <div class="subscription-grid">
         <article class="subscription-card">
-          <p class="plan-label">THE EVERYDAY</p><h3>Explorer</h3><p class="plan-description">A dependable monthly delivery for your daily cup.</p><div class="plan-price"><strong>MWK 30,000</strong><span>/ month</span></div>
+          <p class="plan-label">The everyday</p><h3>Explorer</h3><p class="plan-description">A dependable monthly delivery for your daily cup.</p><div class="plan-price"><strong>MWK 30,000</strong><span>/ month</span></div>
           <ul><li>One 250g bag each month</li><li>Rotating house coffee</li><li>Simple brew guide included</li><li>Pause or skip in a future account portal</li></ul>
-          <button class="button button-outline button-full" type="button" data-add-to-cart data-product-id="sub-explorer">Choose Explorer</button>
+          <button class="button-outline button-full button" type="button" data-add-to-cart data-product-id="sub-explorer">Choose Explorer</button>
         </article>
         <article class="subscription-card subscription-card-featured">
-          <span class="plan-ribbon">MOST FLEXIBLE</span><p class="plan-label">THE DISCOVERY</p><h3>Enthusiast</h3><p class="plan-description">Two distinct coffees for curious drinkers.</p><div class="plan-price"><strong>MWK 55,000</strong><span>/ month</span></div>
+          <span class="plan-ribbon">MOST FLEXIBLE</span><p class="plan-label">The discovery</p><h3>Enthusiast</h3><p class="plan-description">Two distinct coffees for curious drinkers.</p><div class="plan-price"><strong>MWK 55,000</strong><span>/ month</span></div>
           <ul><li>Two 250g bags each month</li><li>One single origin and one blend</li><li>Early access to seasonal releases</li><li>Monthly tasting notes</li></ul>
-          <button class="button button-dark button-full" type="button" data-add-to-cart data-product-id="sub-enthusiast">Choose Enthusiast</button>
+          <button class="button-dark button-full button" type="button" data-add-to-cart data-product-id="sub-enthusiast">Choose Enthusiast</button>
         </article>
         <article class="subscription-card">
-          <p class="plan-label">THE SHARED TABLE</p><h3>Household</h3><p class="plan-description">A generous rhythm for homes that brew often.</p><div class="plan-price"><strong>MWK 96,000</strong><span>/ month</span></div>
+          <p class="plan-label">The shared table</p><h3>Household</h3><p class="plan-description">A generous rhythm for homes that brew often.</p><div class="plan-price"><strong>MWK 96,000</strong><span>/ month</span></div>
           <ul><li>Four 250g bags each month</li><li>Choice of whole bean or ground</li><li>Seasonal tasting selection</li><li>Priority workshop booking</li></ul>
-          <button class="button button-outline button-full" type="button" data-add-to-cart data-product-id="sub-household">Choose Household</button>
+          <button class="button-outline button-full button" type="button" data-add-to-cart data-product-id="sub-household">Choose Household</button>
         </article>
       </div>
       <p class="prototype-note price-note">Subscription names, quantities, benefits and MWK prices are sample content. No recurring payment or delivery schedule is activated.</p>
@@ -73,7 +102,36 @@
         </div>
       </div>
     </section>
+
   </main>
-  <footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a class="brand brand-footer" href="index.html"><img class="brand-mark" src="asserts/images/bean-mark.svg" alt=""><span class="brand-name">BEAN <span>BOUTIQUE</span></span></a><p>Thoughtful coffee for curious people. Come as you are; stay for another cup.</p></div><div class="footer-links"><h2>Explore</h2><a href="coffee.html">Coffee collection</a><a href="equipment.html">Brewing equipment</a><a href="events.html">Events and workshops</a><a href="subscriptions.html">Offers and subscriptions</a></div><div class="footer-links"><h2>Say hello</h2><a href="mailto:hello@beanboutique.example">hello@beanboutique.example</a><span class="footer-note">Replace example contact details before launch.</span></div></div><div class="container footer-bottom"><span>© <span data-current-year>2026</span> Bean Boutique. Prototype concept.</span><span>Made with care, brewed with patience.</span></div></footer>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="index.html">
+          <img class="brand-mark" src="asserts/images/bean-mark.svg" alt="">
+          <span class="brand-name">BEAN <span>BOUTIQUE</span></span>
+        </a>
+        <p>Thoughtful coffee for curious people. Come as you are; stay for another cup.</p>
+      </div>
+      <div class="footer-links">
+        <h2>Explore</h2>
+        <a href="coffee.html">Coffee collection</a>
+        <a href="equipment.html">Brewing equipment</a>
+        <a href="events.html">Events and workshops</a>
+        <a href="subscriptions.html">Offers and subscriptions</a>
+      </div>
+      <div class="footer-links">
+        <h2>Say hello</h2>
+        <a href="mailto:hello@beanboutique.example">hello@beanboutique.example</a>
+        <a href="https://www.instagram.com/explore/tags/specialtycoffee/" target="_blank" rel="noopener noreferrer">Coffee community on Instagram ↗</a>
+        <span class="footer-note">Replace the example email and social links with verified business details.</span>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span data-current-year>2026</span> Bean Boutique. Prototype concept.</span>
+      <span>Made with care, brewed with patience.</span>
+    </div>
+  </footer>
 </body>
 </html>

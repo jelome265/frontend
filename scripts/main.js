@@ -1,5 +1,6 @@
 /* Bean Boutique - progressive enhancement for a static HTML prototype. */
 (function () {
+  document.documentElement.classList.add("js");
   "use strict";
 
   const CART_KEY = "bean-boutique-cart-v1";
@@ -726,11 +727,32 @@
     });
   }
 
+  function initialiseScoreSheets() {
+    const sheets = document.querySelectorAll("[data-score-sheet]");
+    if (!sheets.length) return;
+    const reduceMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!("IntersectionObserver" in window) || reduceMotion) {
+      sheets.forEach(function (sheet) { sheet.classList.add("is-in"); });
+      return;
+    }
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+    sheets.forEach(function (sheet) { observer.observe(sheet); });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initialiseNavigation();
     initialiseCarousel();
     initialiseTickerToggle();
     initialisePageFind();
+    initialiseScoreSheets();
     initialiseCoffeeSearch();
     initialiseCartActions();
     initialiseWelcomeModal();
