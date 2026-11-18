@@ -1,0 +1,55 @@
+REQUIRED IMAGES - Bean Boutique
+================================
+
+Drop each photo into asserts/images/ with EXACTLY this file name (case-sensitive,
+lowercase, .jpg). The website already points to these paths, so once a file is
+added and pushed, it appears with no other change.
+
+Recommended for every photo: landscape, 1200 x 900 px or larger (4:3), JPEG,
+under 400 KB, subject centred. Use photos you have rights to publish.
+
+Alt text in brackets is the description already written into the page.
+
+HOME PAGE (index.html)
+  home-coffee.jpg               Feature card "Coffee with character"     [Roasted coffee beans]
+  home-equipment.jpg            Feature card "Make a better brew"        [Pour-over brewing equipment]
+  home-events.jpg               Feature card "Learn something new"       [People at a coffee tasting]
+  home-featured-mzuzu.jpg       Featured slide 1, "Mzuzu Highlands"      [Roasted Mzuzu Highlands coffee beans]
+  home-featured-equipment.jpg   Featured slide 2, "The slower pour"      [Pour-over equipment on a counter]
+  home-featured-workshop.jpg    Featured slide 3, "Pour-over workshop"   [A small-group pour-over workshop]
+  home-moments.jpg              Split band "Made for the moments between" [A welcoming coffee tasting table]
+  home-welcome-offer.jpg        First-visit offer dialog (left panel)    [decorative]
+
+COFFEE COLLECTION (coffee.html)
+  coffee-hero.jpg               Page header                              [Roasted coffee beans]
+  coffee-dedza-washed.jpg       Card: Dedza Washed                       [Washed Dedza coffee beans]
+  coffee-zomba-honey.jpg        Card: Zomba Honey                        [Honey-processed Zomba coffee beans]
+  coffee-lake-blend.jpg         Card: Lake Blend                         [Espresso blend beans on a counter]
+  coffee-mzuzu-highlands.jpg    Card: Mzuzu Highlands                    [Roasted Mzuzu Highlands coffee beans]
+  coffee-shire-espresso.jpg     Card: Shire Espresso                     [Dark roasted house blend beans]
+  coffee-nyika-natural.jpg      Card: Nyika Natural                      [Naturally processed Nyika coffee cherries]
+  coffee-kuche-decaf.jpg        Card: Kuche Decaf                        [Decaf coffee beans in a bowl]
+
+BREWING EQUIPMENT (equipment.html)
+  equipment-hero.jpg            Page header                              [Brewing equipment on a table]
+  equipment-espresso-machine.jpg  Card: Home Espresso Machine           [Espresso machine with a portafilter]
+  equipment-french-press.jpg    Card: Classic French Press               [Glass French press with coffee]
+  equipment-pour-over-kit.jpg   Card: Pour-over Starter Set              [Pour-over dripper and server]
+  equipment-hand-grinder.jpg    Card: Hand Burr Grinder                  [Manual burr grinder]
+  equipment-gooseneck-kettle.jpg  Card: Gooseneck Kettle                 [Gooseneck kettle pouring water]
+
+EVENTS AND WORKSHOPS (events.html)
+  events-hero.jpg               Page header                              [People sharing coffee around a table]
+
+OFFERS AND SUBSCRIPTIONS (subscriptions.html)
+  subscriptions-hero.jpg        Page header                              [Freshly roasted coffee beans]
+  subscription-explorer.jpg     Shopping bag thumbnail, Explorer plan    [sample]
+  subscription-enthusiast.jpg   Shopping bag thumbnail, Enthusiast plan  [sample]
+  subscription-household.jpg    Shopping bag thumbnail, Household plan   [sample]
+
+TOTAL: 27 photos. Logo (bean-mark.svg) is the only vector kept.
+
+Notes
+- Show the product, not a stock "lifestyle" scene, where a product is named.
+- Subscription thumbnails appear only in the shopping bag.
+- Photos without a licence or with identifiable people's faces need written consent.

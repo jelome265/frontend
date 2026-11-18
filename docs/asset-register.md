@@ -4,6 +4,11 @@ Every image, font and third-party embed in the Bean Boutique prototype, with its
 
 ## Local images (`asserts/images/`)
 
+As of this pass, all illustrations have been removed. Every product, page and home slot points to a named photo that the owner supplies. The full list with exact names is in `asserts/images/REQUIRED-IMAGES.txt` (27 photos). Only `bean-mark.svg` remains as a vector.
+
+The previous illustration table below is retained as history only.
+
+
 All seven files are SVG, contain no `<text>` elements and reference no external resources (the only URL is the SVG namespace). They were created for this prototype, as stated in `asserts/images/README.md`.
 
 | File | Used on | Purpose | Bytes | Source | Licence / status |

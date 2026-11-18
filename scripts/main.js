@@ -9,91 +9,91 @@
       name: "Mzuzu Highlands",
       price: 18500,
       detail: "250g coffee · Malawi single origin",
-      image: "asserts/images/coffee-beans.svg"
+      image: "asserts/images/coffee-mzuzu-highlands.jpg"
     },
     "shire-espresso": {
       name: "Shire Espresso",
       price: 20000,
       detail: "250g coffee · house blend",
-      image: "asserts/images/coffee-beans.svg"
+      image: "asserts/images/coffee-shire-espresso.jpg"
     },
     "nyika-natural": {
       name: "Nyika Natural",
       price: 22000,
       detail: "250g coffee · seasonal single origin",
-      image: "asserts/images/coffee-beans.svg"
+      image: "asserts/images/coffee-nyika-natural.jpg"
     },
     "dedza-washed": {
       name: "Dedza Washed",
       price: 17000,
       detail: "250g coffee · Malawi single origin",
-      image: "asserts/images/coffee-beans.svg"
+      image: "asserts/images/coffee-dedza-washed.jpg"
     },
     "zomba-honey": {
       name: "Zomba Honey",
       price: 19000,
       detail: "250g coffee · Malawi single origin",
-      image: "asserts/images/coffee-beans.svg"
+      image: "asserts/images/coffee-zomba-honey.jpg"
     },
     "lake-blend": {
       name: "Lake Blend",
       price: 18000,
       detail: "250g coffee · house blend",
-      image: "asserts/images/coffee-beans.svg"
+      image: "asserts/images/coffee-lake-blend.jpg"
     },
     "espresso-machine": {
       name: "Home Espresso Machine",
       price: 350000,
       detail: "Single unit · illustrative price",
-      image: "asserts/images/espresso-machine.svg"
+      image: "asserts/images/equipment-espresso-machine.jpg"
     },
     "kuche-decaf": {
       name: "Kuche Decaf",
       price: 21000,
       detail: "250g coffee · decaffeinated",
-      image: "asserts/images/coffee-beans.svg"
+      image: "asserts/images/coffee-kuche-decaf.jpg"
     },
     "press-pot": {
       name: "Classic French Press",
       price: 46000,
       detail: "Brewing equipment · each",
-      image: "asserts/images/brewing-tools.svg"
+      image: "asserts/images/equipment-french-press.jpg"
     },
     "pour-over-kit": {
       name: "Pour-over Starter Set",
       price: 58000,
       detail: "Brewing equipment · set",
-      image: "asserts/images/brewing-tools.svg"
+      image: "asserts/images/equipment-pour-over-kit.jpg"
     },
     "hand-grinder": {
       name: "Hand Burr Grinder",
       price: 79000,
       detail: "Brewing equipment · each",
-      image: "asserts/images/grinder.svg"
+      image: "asserts/images/equipment-hand-grinder.jpg"
     },
     "gooseneck-kettle": {
       name: "Gooseneck Kettle",
       price: 68000,
       detail: "Brewing equipment · each",
-      image: "asserts/images/brewing-tools.svg"
+      image: "asserts/images/equipment-gooseneck-kettle.jpg"
     },
     "sub-explorer": {
       name: "Explorer Subscription",
       price: 30000,
       detail: "Monthly subscription · one 250g bag",
-      image: "asserts/images/coffee-beans.svg"
+      image: "asserts/images/subscription-explorer.jpg"
     },
     "sub-enthusiast": {
       name: "Enthusiast Subscription",
       price: 55000,
       detail: "Monthly subscription · two 250g bags",
-      image: "asserts/images/coffee-beans.svg"
+      image: "asserts/images/subscription-enthusiast.jpg"
     },
     "sub-household": {
       name: "Household Subscription",
       price: 96000,
       detail: "Monthly subscription · four 250g bags",
-      image: "asserts/images/coffee-beans.svg"
+      image: "asserts/images/subscription-household.jpg"
     }
   });
 

@@ -563,3 +563,25 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .footer-links a, .footer-note { overflow-wrap: anywhere; }
 .catalogue-controls > * { min-width: 0; }
 .section-heading { grid-template-columns: minmax(0, 1fr); } .section-heading > * { min-width: 0; }
+
+/* Photo slots: fill their frames; the tinted frame shows until a photo is added */
+.product-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.product-card:hover .product-image img { transform: scale(1.03); }
+.product-image { aspect-ratio: 5 / 4; background: #e6e9f2; }
+.carousel-slide-image { min-height: 340px; background: var(--roast); position: relative; }
+.carousel-slide-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; padding: 0; }
+.page-hero-art img, .split-image img, .modal-art img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.modal-art { padding: 0; }
+.cart-item-image img { width: 100%; height: 100%; object-fit: cover; }
+.feature-card img { background: var(--roast); }
+
+/* Empty photo slots: hide broken-image alt text and icon until a photo is supplied */
+.product-image img, .feature-card img, .carousel-slide-image img, .page-hero-art img, .split-image img, .modal-art img, .cart-item-image img { font-size: 0; color: transparent; overflow: hidden; }
+/* Score rows: value column sized to its word */
+.score-row { grid-template-columns: 96px minmax(0, 1fr) auto; }
+.card-profile .score-row { grid-template-columns: 84px minmax(0, 1fr) auto; }
+.score-value { white-space: nowrap; min-width: 56px; font-size: .75rem; }
+/* Price and action on one line */
+.product-buy { flex-wrap: wrap; }
+.product-buy .button-small { white-space: nowrap; }
+.product-price { white-space: nowrap; }
