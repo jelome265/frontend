@@ -256,7 +256,7 @@
         increase.dataset.cartAction = "increase";
         increase.dataset.productId = productId;
 
-        const remove = createElement("button", "remove-item", "Remove");
+        const remove = createElement("button", "remove-item destructive", "Remove");
         remove.type = "button";
         remove.dataset.cartAction = "remove";
         remove.dataset.productId = productId;
@@ -473,6 +473,7 @@
 
       const clearButton = event.target.closest("[data-clear-cart]");
       if (clearButton) {
+        if (!window.confirm("Remove everything from your bag? This cannot be undone.")) return;
         cart = {};
         saveCart();
         updateCartBadges();

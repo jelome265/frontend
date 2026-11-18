@@ -433,9 +433,10 @@ mark.find-hit.is-current { color: var(--paper); background: var(--cobalt); box-s
 }
 @media (max-width: 960px) {
   .hero-grid, .page-hero, .split-grid, .community-grid, .location-grid, .registration-grid, .faq-grid, .cart-layout { grid-template-columns: minmax(0, 1fr); }
-  .feature-grid, .subscription-grid { grid-template-columns: 1fr; }
+  .feature-grid, .subscription-grid { grid-template-columns: minmax(0, 1fr); }
   .feature-grid { max-width: 560px; }
-  .footer-main { grid-template-columns: 1fr 1fr; }
+  .catalogue-controls, .search-field, #coffee-filter { width: 100%; }
+  .footer-main { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .footer-brand { grid-column: 1 / -1; }
   .carousel-slide { grid-template-columns: minmax(0, 1fr); }
   .carousel-slide-image { min-height: 240px; }
@@ -445,13 +446,13 @@ mark.find-hit.is-current { color: var(--paper); background: var(--cobalt); box-s
 }
 @media (max-width: 640px) {
   :root { --gutter: 20px; }
-  h1 { font-size: clamp(2.6rem, 13vw, 3.8rem); }
+  h1 { font-size: min(3.8rem, 13vw); }
   .event-card { grid-template-columns: 1fr; gap: 14px; }
   .event-date { flex-direction: row; gap: 10px; min-height: 0; padding: 12px 16px; justify-content: flex-start; }
   .event-date span { font-size: 1.75rem; }
   .event-cta { width: 100%; }
   .form-row { grid-template-columns: minmax(0, 1fr); }
-  .footer-main { grid-template-columns: 1fr; }
+  .footer-main { grid-template-columns: minmax(0, 1fr); }
   .cart-item { grid-template-columns: 84px minmax(0, 1fr); }
   .cart-item-price { grid-column: 2; }
   .product-grid { grid-template-columns: 1fr; }
@@ -547,3 +548,18 @@ h1, h2, h3 { text-wrap: balance; }
 .hero-sheet { animation-delay: 140ms; }
 @keyframes enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 .product-card:hover .product-image img { transform: scale(1.03); }
+
+/* Apple HIG pass: destructive actions, increased contrast, enlargement */
+.destructive { color: var(--cherry) !important; }
+.destructive:hover { text-decoration-thickness: 2px; }
+@media (prefers-contrast: more) {
+  :root { --muted: #2e333b; --rule: rgba(21,24,28,.55); --rule-strong: var(--ink); }
+  .button, .button-dark, .button-outline, .button-light, .product-card, .feature-card, .subscription-card, .score-sheet { border-width: 2px; }
+  .primary-nav > a::after { height: 4px; }
+  .cart-summary { border: 2px solid var(--marigold); }
+}
+
+h1, h2, h3 { overflow-wrap: break-word; }
+.footer-links a, .footer-note { overflow-wrap: anywhere; }
+.catalogue-controls > * { min-width: 0; }
+.section-heading { grid-template-columns: minmax(0, 1fr); } .section-heading > * { min-width: 0; }

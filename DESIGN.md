@@ -80,3 +80,9 @@ Icons are drawn in CSS: arrows are a corner shape rotated to direction, the clos
 - The earlier warm illustrations remain in use as product imagery and sit on cobalt and tinted grounds; they are warmer than the cool system. Real photography will replace them.
 - The home feature boxes are a brief requirement, so they are the same size; they are the one place the layout follows a familiar pattern by necessity.
 - The ticker is a continuous marquee, kept because it is part of the identity and it can be paused.
+
+## Accessibility Additions (Apple HIG pass)
+
+- Text enlargement to 200% reflows without horizontal scrolling on every page (verified at 390 and 1440).
+- `prefers-contrast: more` strengthens rules, borders and muted text.
+- Destructive actions use `--cherry`; clearing the bag asks for confirmation.
