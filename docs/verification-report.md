@@ -65,3 +65,12 @@ This report separates what was run from what was not. Items marked **Not run** a
 - Find bar tested on all six pages: highlighting, match count and clear all work.
 - Functional smoke test (headless Chromium): cart holds coffees and the espresso machine; events form fields are first name, last name, email and session; no page errors. The one console error is an offline DNS failure for an external embed.
 - Still not run: screen readers, a second browser, a mobile browser, and the online W3C service itself.
+
+## Taste pass (design-taste-frontend 2.5.1)
+
+Applied to the cupping-sheet build as the "client's own colours" path. The skill's full pipeline (palette deal, kit replacement, stock photo search) was not used, because it would replace the committed world.
+
+- Copy-lint (`--kind place`): 0 FAIL on all six pages. Virtue words reduced to budget; footer sign-off removed; the h1 is unchanged, and the category is named in the hero description.
+- Motion house rules: linked cards lift 2px; photographs zoom 1.03 inside their frame; buttons press on click; the hero enters once on load.
+- Gate (`gate.mjs`): armed, but the checkers could not start Chrome in this sandbox (`Chrome exited early`, zygote error). **GATE: ERROR, not run.** Equivalent checks were run manually: no horizontal overflow at 1440/390, no console errors, copy-lint clean.
+- Not met, by constraint: real photographs (no network to stock sources; client assets pending); real full-colour product icons (none available offline); a dealt moment on every page (the score-sheet fill is the home and coffee moment).

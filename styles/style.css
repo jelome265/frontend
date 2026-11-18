@@ -538,3 +538,12 @@ h1, h2, h3 { text-wrap: balance; }
 .form-status, .field-help { font-family: var(--body); font-size: .8125rem; }
 
 .hero-description, .hero h1 { text-shadow: none; }
+
+/* Taste pass: house motion rules */
+.feature-card:hover, .product-card:hover, .subscription-card:hover { transform: translateY(-2px); }
+.product-card:hover .product-image img { transform: scale(1.03); }
+.button:active, .button-dark:active, .button-outline:active, .button-light:active, .icon-button:active { transform: translateY(1px) scale(.98); transition-duration: .08s; }
+.hero-copy, .hero-sheet { animation: enter 900ms var(--ease) both; }
+.hero-sheet { animation-delay: 140ms; }
+@keyframes enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.product-card:hover .product-image img { transform: scale(1.03); }
