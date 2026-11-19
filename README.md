@@ -57,6 +57,7 @@ The `asserts/` directory spelling follows the requested project structure. The i
 ## Design documentation
 
 - [PRODUCT.md](PRODUCT.md) and [DESIGN.md](DESIGN.md): product context and the visual system.
+- [docs/PHOTO-LED-HERO-DIRECTION.md](docs/PHOTO-LED-HERO-DIRECTION.md): owner-approved full-bleed photographic hero and editorial website direction, research references, and acceptance criteria.
 - [docs/design-decisions.md](docs/design-decisions.md): how the Impeccable, Taste and Apple Design guidance was applied, and what was not.
 - [docs/asset-register.md](docs/asset-register.md): every image, font and third-party embed, with status.
 - [docs/verification-report.md](docs/verification-report.md): what was checked, the results, and what remains outstanding.
