@@ -35,7 +35,7 @@ Spacing scale: `--space-1` (0.25rem) to `--space-8` (4rem), with section padding
 ## Layout and components
 
 - **Header:** sticky espresso bar, brand left, nav right. Below 1040px the menu collapses behind a labelled button into a full-width panel.
-- **Hero (home):** full-bleed espresso. Headline and one-line copy left, primary caramel action, text link, and a white cupping score sheet right (labelled illustrative).
+- **Hero (home):** full-bleed coffee photograph spanning the entire hero. HTML headline and copy overlay the image, supported by a controlled espresso gradient. The old split hero and score-sheet-in-hero composition are superseded by [the photo-led editorial direction](docs/PHOTO-LED-HERO-DIRECTION.md).
 - **Feature boxes (home):** three bordered-free boxes with 12px radius, soft shadow and hover lift, as the assignment brief requires. The lead box spans two rows.
 - **Carousel:** champagne section with a white frame. Previous and next are drawn arrow buttons.
 - **Product cards:** flat, with a 3px espresso top rule, a mono origin line, title, description, score profile for coffees, brew notes and price with add-to-bag. The first coffee is a wide lead.
@@ -52,7 +52,7 @@ Drawn in CSS: arrows are a rotated corner, the close mark is two bars, the searc
 
 ## Photography
 
-Every product, hero and feature image is a named photo slot listed in `asserts/images/REQUIRED-IMAGES.txt`. No licensed photographs were available to this build, so an image that fails to load is hidden and its palette ground shows (see `main.js`, `initialisePhotoFallback`). Alt text stays in the DOM. Replace each slot with a licensed photograph at the listed filename; no code change is needed.
+The approved homepage direction is photo-led: one full-bleed coffee photograph fills the entire hero, with HTML text overlaid on the image. See [the photo-led editorial direction](docs/PHOTO-LED-HERO-DIRECTION.md) for image art direction, crop, overlay, responsive behaviour, and acceptance criteria. The asset register and required-image manifest currently record photography as outstanding; do not claim the photo-led hero is complete until approved, licensed photography has been supplied and verified.
 
 ## Accessibility
 
