@@ -85,3 +85,21 @@ Applied the parts of the Human Interface Guidelines that transfer to a web proto
 - Destructive actions: "Clear bag" and "Remove" use a distinct red and "Clear bag" asks for confirmation before deleting.
 - Touch targets: 44px minimum on buttons, quantity controls, menu items and close.
 - Motion: reduced motion stops the ticker, hover lifts and entrance animation.
+
+## Premium redesign verification (2026-11-19)
+
+Tooling: Impeccable (`npx skills add pbakaus/impeccable`), Taste (`design-taste-frontend`, from Leonxlnx/taste-skill) and Apple HIG (raintree-technology/apple-hig-skills), installed from their published sources under `~/.claude/skills/`.
+
+| Check | Result |
+|---|---|
+| Horizontal overflow, all six pages at 1440 and 390 | 0px on every page |
+| Functional browser suite (Playwright, Chromium) | 14/14 pass: menu open and Escape, welcome dialog, carousel, catalogue search and filter, add to bag persists, cart quantity, registration validation, FAQ |
+| JavaScript errors | None. Offline Spotify, OpenStreetMap and Turnstile requests fail as expected with no network |
+| `node --check scripts/main.js` | Pass |
+| Inline `style=` attributes or `<style>` elements | None |
+| Impeccable detector (`detect --json --changed`) | 19 findings, all `cramped-padding`. These flag flush edges on intentional full-bleed photo frames and container edges. Reviewed, not changed. The earlier low-contrast, side-tab and marquee findings are fixed |
+| Palette contrast | Documented per token in `DESIGN.md` |
+
+Not run in this pass: W3C Nu HTML Checker (needs network access to validator.w3.org), screen-reader testing, real-device and second-browser testing.
+
+Outstanding: all 27 required photographs in `asserts/images/REQUIRED-IMAGES.txt` are missing. Until they are added, image slots show the palette ground and the layout is verified with that fallback.

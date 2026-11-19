@@ -4,85 +4,61 @@
 
 ## Status
 
-This is the replacement visual world for Bean Boutique, built on the cupping-sheet direction recorded in `.impeccable/surfaces/index-html.md`. It replaces the earlier cream, serif and bean-illustration system, which was judged too generic. Built and checked in headless Chromium at 1440 and 390 widths and validated with the Nu HTML Checker. A real-device audit has not been done.
+Replacement visual world, pinned by the Bean Boutique premium website directive (espresso, caramel, champagne palette). It replaces the earlier cobalt cupping-sheet system. Built as a static HTML/CSS/JavaScript site with no framework or build step. Checked in headless Chromium at 1440 and 390 widths, and by the Impeccable detector. A real-device audit and licensed photography are outstanding (see `docs/verification-report.md`).
 
-## Product Surface
+## Visual identity
 
-Bean Boutique is a six-page coffee-boutique prototype: home, coffee collection, brewing equipment, shopping bag, events and workshops, and offers and subscriptions. The interface supports discovery, the sample cart and the demonstration forms. It is not a production storefront.
+- **Concept:** a specialty roastery's identity drawn from the coffee itself: espresso, caramel crema, champagne milk foam, and white paper. Warm, editorial and restrained.
+- **Colour strategy:** committed. Espresso and coffee carry the header, footer and dark bands. Champagne carries warm editorial sections. White carries reading and ordering surfaces. Caramel carries every primary action.
+- **Typography:** Archivo (variable weight, self-hosted, SIL OFL) for display and body. Martian Mono (self-hosted, SIL OFL) only for data: prices, origins, dates, sample scores. Headings use tight tracking (-0.025em) and a heavy weight.
+- **Motion:** one restrained entrance on the score sheet bars, hover lift on feature and subscription boxes, product image zoom on hover, and a drawn arrow shift. All motion is disabled under `prefers-reduced-motion`. The home ticker is static.
+- **Theme:** light by default; dark bands for the header, footer, hero, cart summary and featured tier, chosen for contrast and rhythm rather than by category.
 
-## Visual Identity
-
-- **Concept:** every coffee is a graded record. Flavour is shown the way a roaster grades a cupping sheet, so visitors read measured evidence and order from the sheet.
-- **Colour strategy:** committed. Cobalt carries the hero and primary emphasis; paper carries the reading surfaces; graphite and ink carry the dark bands and footer; marigold is the accent and ticker field.
-- **Typography:** Archivo (variable weight, self-hosted, SIL OFL) for display and body. Martian Mono (self-hosted, SIL OFL) only for data: scores, prices, dates, times and measurements. Labels and tags use Archivo in small uppercase.
-- **Motion:** one authored moment per page: score bars fill as each sheet enters view. Other motion is hover lift, the ticker (pausable), the carousel and modal entrance. All motion stops under `prefers-reduced-motion`.
-- **Theme:** light surfaces with one dark band per page (graphite). Light and dark are chosen by use: reading and ordering surfaces are light; the footer and feature band are dark for contrast and rhythm.
-
-## Design Tokens
+## Design tokens
 
 | Token | Value | Role | Contrast (on its usual surface) |
 |---|---|---|---|
-| `--cobalt` | `#1f3fbf` | Hero field, primary links, emphasis text on paper | 7.6:1 on paper; paper on cobalt 7.6:1 |
-| `--cobalt-deep` | `#172f96` | Emphasis on marigold | 5.9:1 on marigold |
-| `--paper` | `#f4f5f2` | Page background | ink on paper 16.3:1 |
-| `--white` | `#ffffff` | Raised surfaces, score sheets | |
-| `--ink` | `#15181c` | Primary text, dark buttons | ink on marigold 9.5:1 |
-| `--graphite` | `#23272e` | Dark bands | paper on graphite 16.3:1 |
-| `--muted` | `#4a5058` | Secondary text | 7.4:1 on paper |
-| `--marigold` | `#f2b233` | Accent field, primary button, ticker, marks | Bars and fills only; not for small text on cobalt |
-| `--marigold-pale` | `#f7d98a` | Emphasis text on cobalt | 6.1:1 on cobalt |
-| `--roast` | `#3b2519` | Image frame behind warm illustrations | |
-| `--cherry` | `#b8322a` | Reserved for errors (not yet used) | |
-| `--rule` | `rgba(21,24,28,.18)` | Hairline dividers | |
-| `--rule-strong` | `rgba(21,24,28,.8)` | Section and table rules | |
-| `--radius` | `8px` | Boxes, sheets, cards | |
-| `--shadow` / `--shadow-lift` | offset plus blur | Surface depth | |
-| `--content` | `1240px` | Container maximum | |
+| `--color-espresso` | `#1A120E` | Header, footer, hero, featured surfaces | White 17.9:1; champagne 10.9:1 |
+| `--color-coffee` | `#3A2418` | Secondary dark: ticker, announcement, split band, plugin band | Champagne 8.5:1 |
+| `--color-caramel` | `#6B4A2E` | Primary actions, emphasis on light, date tiles | White on caramel 7.9:1; caramel on champagne 4.7:1 |
+| `--color-taupe` | `#A88462` | Supporting detail on dark surfaces, rules and bars | Taupe on espresso 5.4:1 (text on dark only; taupe on champagne is 2.0:1 and is never used for text) |
+| `--color-champagne` | `#D5C4AE` | Warm editorial sections, bar tracks, image grounds | Charcoal on champagne 9.5:1 |
+| `--color-charcoal` | `#212121` | Body text | On white 16.1:1 |
+| `--color-white` | `#FFFFFF` | Clean surfaces, text on dark | |
 
-Text on coloured surfaces meets WCAG AA (4.5:1 for body, 3:1 for large display). Marigold is never used for body text on cobalt.
+Text on coloured surfaces meets WCAG 2.2 AA (4.5:1 body, 3:1 large). Caramel is never used for body text on espresso or coffee. Taupe is never used for body text on champagne or white.
 
-## Layout and Components
+Derived only from the palette: `--shadow-soft`, `--shadow-lift` (espresso-tinted offset plus blur), `--rule` and `--rule-on-dark` (hairlines).
 
-- **Header:** sticky paper bar with a 3px cobalt underline on hover and current page. The bag is a cobalt button with a marigold count. Below 1040px the menu collapses behind a labelled button.
-- **Hero (home):** full-bleed cobalt field. Left: a display headline, one-line description, a marigold primary action and a text link. Right: a white score sheet with six attribute bars, labelled illustrative.
-- **Score sheet:** the signature device. A bordered white sheet, a mono header row, ruled attribute rows and bars on a 10-step scale. Bars are text-readable; values are real text.
-- **Feature boxes (home):** three bordered boxes with an 8px radius, a box shadow, and a lift on hover. Required by the brief.
-- **Product cards:** bordered white cards, an image tile on a tinted ground, origin line, title, description, a score profile for coffees, brew notes, and price with an add-to-bag action.
-- **Carousel:** a bordered white frame with a cobalt image panel and copy panel. Previous and next are drawn arrow buttons.
-- **Graphite band:** a dark section with a marigold accent, used once per page.
-- **Event rows:** a ruled list. Each row has a cobalt date tile, details and a register action. The registration form is a bordered paper panel.
-- **Subscriptions:** three tier cards. The middle tier is cobalt-filled with marigold accents. FAQ uses ruled disclosure rows with drawn plus signs.
-- **Cart:** a ruled item list and a dark order summary. The summary total is marigold on ink.
-- **Welcome dialog:** a two-part modal (cobalt art panel, paper form) shown to first-time visitors, as the brief requires. Close is a drawn cross.
-- **Find on this page:** a search field with an animated cobalt underline, previous and next controls, and a live status line. Matches are highlighted with a fade-in mark; the current match is cobalt.
+Spacing scale: `--space-1` (0.25rem) to `--space-8` (4rem), with section padding `--section-y` and `--section-y-tight`. Container `--content` 1240px with `--gutter`.
+
+## Layout and components
+
+- **Header:** sticky espresso bar, brand left, nav right. Below 1040px the menu collapses behind a labelled button into a full-width panel.
+- **Hero (home):** full-bleed espresso. Headline and one-line copy left, primary caramel action, text link, and a white cupping score sheet right (labelled illustrative).
+- **Feature boxes (home):** three bordered-free boxes with 12px radius, soft shadow and hover lift, as the assignment brief requires. The lead box spans two rows.
+- **Carousel:** champagne section with a white frame. Previous and next are drawn arrow buttons.
+- **Product cards:** flat, with a 3px espresso top rule, a mono origin line, title, description, score profile for coffees, brew notes and price with add-to-bag. The first coffee is a wide lead.
+- **Plugin band:** espresso panel with the Spotify and OpenStreetMap embeds.
+- **Events:** ruled list with caramel date tiles and a registration panel on champagne.
+- **Subscriptions:** three tier boxes; the middle tier is espresso. FAQ uses ruled disclosure rows with drawn plus signs.
+- **Cart:** ruled item list with a sticky espresso order summary.
+- **Welcome dialog:** two-part modal, first visit only, with a drawn close mark.
+- **Find on this page:** search bar with animated underline, previous and next controls, and a live status line.
 
 ## Iconography
 
-Icons are drawn in CSS: arrows are a corner shape rotated to direction, the close mark is two bars, the search glyph is a ring with a handle. No unicode glyphs are used as icons.
+Drawn in CSS: arrows are a rotated corner, the close mark is two bars, the search glyph is a ring with a handle, the menu icon is three bars. No unicode glyphs are used as icons.
 
-## Motion and Interaction
+## Photography
 
-- Score bars fill when at least 35% of their sheet is visible; they start empty only when JavaScript is running, so content is visible without it.
-- Hover on cards lifts by 4 to 6px with a deeper shadow.
-- The ticker runs continuously and can be paused; it is disabled under reduced motion.
-- No scroll hijacking, no perpetual decorative motion beyond the ticker, and no animation that delays an action.
+Every product, hero and feature image is a named photo slot listed in `asserts/images/REQUIRED-IMAGES.txt`. No licensed photographs were available to this build, so an image that fails to load is hidden and its palette ground shows (see `main.js`, `initialisePhotoFallback`). Alt text stays in the DOM. Replace each slot with a licensed photograph at the listed filename; no code change is needed.
 
 ## Accessibility
 
-- Semantic landmarks, one `h1` per page, no skipped heading levels (verified by the Nu HTML Checker).
-- Focus is a 3px cobalt outline; on cobalt and graphite surfaces it is marigold.
-- Touch targets are at least 44px.
-- Decorative images use empty alt text; product images describe their content.
-- Charts are text-first: every bar value is printed beside the bar.
-
-## Known Limits
-
-- The earlier warm illustrations remain in use as product imagery and sit on cobalt and tinted grounds; they are warmer than the cool system. Real photography will replace them.
-- The home feature boxes are a brief requirement, so they are the same size; they are the one place the layout follows a familiar pattern by necessity.
-- The ticker is a continuous marquee, kept because it is part of the identity and it can be paused.
-
-## Accessibility Additions (Apple HIG pass)
-
-- Text enlargement to 200% reflows without horizontal scrolling on every page (verified at 390 and 1440).
-- `prefers-contrast: more` strengthens rules, borders and muted text.
-- Destructive actions use `--cherry`; clearing the bag asks for confirmation.
+- Semantic landmarks, one `h1` per page, logical heading order.
+- Focus: 3px outline in caramel on light surfaces and champagne on dark surfaces.
+- Touch targets at least 44px.
+- Text scales with the browser: the layout reflows without horizontal scrolling at 390px and 1440px.
+- `prefers-reduced-motion` stops all transitions and the ticker; `prefers-contrast: more` strengthens rules and borders.
+- Invalid form fields use a full 2px border and the validation message, not a colour alone.
