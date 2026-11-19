@@ -202,7 +202,7 @@
 
   function makeEmptyCart(root) {
     const empty = createElement("div", "empty-cart");
-    empty.appendChild(createElement("p", "empty-cart-mark", "◎"));
+    empty.appendChild(createElement("p", "empty-cart-mark"));
     empty.appendChild(createElement("h3", "", "Your bag is waiting."));
     empty.appendChild(createElement("p", "", "Find a coffee or a tool to get started."));
     const link = createElement("a", "button button-dark", "Explore coffee");
@@ -748,7 +748,21 @@
     sheets.forEach(function (sheet) { observer.observe(sheet); });
   }
 
+  // Photo fallback: an image that fails to load is hidden so its palette ground shows,
+  // instead of the browser's broken-image icon and alt text. Alt text stays in the DOM.
+  function markMissingImage(image) {
+    if (image && image.tagName === "IMG") image.classList.add("is-missing");
+  }
+
+  function initialisePhotoFallback() {
+    document.addEventListener("error", function (event) { markMissingImage(event.target); }, true);
+    document.querySelectorAll("img").forEach(function (image) {
+      if (image.complete && image.naturalWidth === 0) markMissingImage(image);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    initialisePhotoFallback();
     initialiseNavigation();
     initialiseCarousel();
     initialiseTickerToggle();

@@ -1,5 +1,17 @@
 # Changelog
 
+## Premium redesign: espresso, caramel and champagne (2026-11-19)
+
+- Replaced the cobalt cupping-sheet visual system with the directive palette (espresso, coffee, caramel, taupe, champagne, charcoal, white) as CSS custom properties.
+- Rewrote `styles/style.css` around the palette and a fixed type scale (Archivo for display and body, Martian Mono for data only).
+- Restructured every page's layout: dark espresso hero with score sheet, asymmetric feature boxes, champagne carousel, espresso plugin band, ruled event list, tiered subscriptions with a dark featured tier, and a two-column cart with a sticky order summary.
+- Removed the auto-scrolling home ticker and its pause control (unnecessary motion). The ticker is now a static, wrapping line.
+- Added a photo fallback in `scripts/main.js`: failed images are hidden so the palette ground shows and no broken-image icon appears.
+- Replaced the empty-cart unicode glyph with a CSS-drawn mark.
+- Set `theme-color` to espresso on all pages.
+- Kept every page, required brief feature, form, JavaScript hook and data attribute. Product data, prices and copy are unchanged.
+- Dark-surface emphasis, invalid-state, FAQ and event-meta spacing fixes after review.
+
 ## Assignment brief alignment (2026-11-16)
 
 - Equipment range now runs from espresso machine to French press (`espresso-machine.svg` added).
