@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#201a16">
+  <meta name="theme-color" content="#1f3fbf">
   <meta name="description" content="Discover carefully sourced coffee, thoughtful brewing equipment and small-group workshops at Bean Boutique.">
   <title>Bean Boutique | Coffee, considered</title>
   <link rel="icon" type="image/svg+xml" href="asserts/images/bean-mark.svg">
+  <link rel="preload" href="asserts/fonts/archivo-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles/style.css">
   <script src="scripts/main.js" defer></script>
 </head>
 <body class="page-home" id="top">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="announcement-bar">
-    Small-batch coffee. Thoughtfully sourced.
-    <a href="subscriptions.html">Explore this month's offers <span aria-hidden="true">→</span></a>
+    <span>Small-batch coffee for curious drinkers.</span>
+    <a href="subscriptions.html">Explore this month's offers <span class="arrow arrow-r" aria-hidden="true"></span></a>
   </div>
 
   <header class="site-header">
@@ -39,112 +40,112 @@
   </header>
 
   <main id="main-content">
-
     <section class="page-find container" aria-label="Find on this page">
       <form class="page-find-form" role="search" data-page-find>
         <label class="page-find-label" for="page-find-input">Find on this page</label>
-        <div class="page-find-field">
-          <input id="page-find-input" type="search" autocomplete="off" placeholder="Search this page…">
-
-        </div>
+        <div class="page-find-field"><input id="page-find-input" type="search" autocomplete="off" placeholder="Search this page…"></div>
         <div class="page-find-nav">
-          <button class="icon-button" type="button" data-find-prev aria-label="Previous match" disabled>↑</button>
-          <button class="icon-button" type="submit" data-find-next aria-label="Next match" disabled>↓</button>
+          <button class="icon-button" type="button" data-find-prev aria-label="Previous match" disabled><span class="arrow arrow-u" aria-hidden="true"></span></button>
+          <button class="icon-button" type="submit" data-find-next aria-label="Next match" disabled><span class="arrow arrow-d" aria-hidden="true"></span></button>
           <button class="text-button" type="button" data-find-clear>Clear</button>
         </div>
         <p class="page-find-status" data-find-status role="status" aria-live="polite"></p>
       </form>
     </section>
-    <section class="hero-section container">
-      <div class="hero-copy">
-        <h1>Good coffee.<br><em>Good company.</em></h1>
-        <p class="hero-description">Curious coffees, considered tools and little moments worth making time for.</p>
-        <div class="button-row">
-          <a class="button button-dark" href="coffee.html">Find your coffee <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="events.html">Come along to a workshop</a>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">Good coffee.<br><em>Good company.</em></h1>
+          <p class="hero-description">Coffee, brewing equipment and workshops from Bean Boutique: curious coffees, considered tools and little moments worth making time for.</p>
+          <div class="button-row">
+            <a class="button" href="coffee.html">Find your coffee <span class="arrow" aria-hidden="true"></span></a>
+            <a class="text-link" href="events.html">Come along to a workshop</a>
+          </div>
+          <div class="hero-footnote">Selected coffee. Small batches. Always welcoming.</div>
         </div>
-        <div class="hero-footnote"><span class="small-rule"></span> Carefully selected. Freshly prepared. Always welcoming.</div>
-      </div>
-      <div class="hero-art">
-        <img src="asserts/images/hero-pour-over.svg" alt="Original illustration of fresh coffee being poured into a handmade ceramic cup">
-        <div class="hero-stamp"><span>BREW</span><strong>BETTER</strong><span>EVERY DAY</span></div>
+        <div class="hero-sheet">
+        <div class="score-sheet" data-score-sheet>
+          <div class="score-sheet-head"><span>Cupping sheet</span><span>Sample 01</span></div>
+          <p class="score-sheet-name">Mzuzu Highlands</p>
+          <p class="score-sheet-origin">Malawi · light-medium</p>
+<div class="score-row"><span>Acidity</span><span class="score-bar" aria-hidden="true"><span class="score-bar-fill s-6"></span></span><span class="score-value">Medium</span></div><div class="score-row"><span>Sweetness</span><span class="score-bar" aria-hidden="true"><span class="score-bar-fill s-6"></span></span><span class="score-value">Medium</span></div><div class="score-row"><span>Body</span><span class="score-bar" aria-hidden="true"><span class="score-bar-fill s-5"></span></span><span class="score-value">Medium</span></div><div class="score-row"><span>Aroma</span><span class="score-bar" aria-hidden="true"><span class="score-bar-fill s-7"></span></span><span class="score-value">High</span></div><div class="score-row"><span>Balance</span><span class="score-bar" aria-hidden="true"><span class="score-bar-fill s-7"></span></span><span class="score-value">High</span></div>          <div class="score-sheet-foot"><span>Notes: <strong>red apple, cocoa, orange peel</strong></span><span>Illustrative</span></div>
+        </div>
+        </div>
       </div>
     </section>
 
     <section class="ticker-band" aria-label="Our approach">
       <div class="container ticker-inner"><div class="ticker-viewport"><div class="ticker-track">
-        <span>TRACEABLE COFFEE</span><i aria-hidden="true">✳</i><span>SMALL-BATCH ROASTS</span><i aria-hidden="true">✳</i><span>BREW WITH INTENTION</span><i aria-hidden="true">✳</i><span>GOOD THINGS TAKE TIME</span><i aria-hidden="true">✳</i><span>TRACEABLE COFFEE</span>
+        <span>Traceable coffee</span><i class="tick-dot" aria-hidden="true"></i><span>Small-batch roasts</span><i class="tick-dot" aria-hidden="true"></i><span>Brew with intention</span><i class="tick-dot" aria-hidden="true"></i><span>Good things take time</span><i class="tick-dot" aria-hidden="true"></i><span>Traceable coffee</span><i class="tick-dot" aria-hidden="true"></i><span>Small-batch roasts</span><i class="tick-dot" aria-hidden="true"></i><span>Brew with intention</span><i class="tick-dot" aria-hidden="true"></i><span>Good things take time</span>
       </div></div>
         <button class="ticker-toggle" type="button" aria-pressed="false" data-ticker-toggle>Pause</button>
       </div>
     </section>
 
-    <section class="section container section-intro">
+    <section class="section container">
       <div class="section-heading">
         <h2>Find your <em>next favourite.</em></h2>
       </div>
       <div class="feature-grid">
-        <a class="feature-card feature-card-coffee" href="coffee.html">
-          <img src="asserts/images/coffee-beans.svg" alt="" loading="lazy">
+        <a class="feature-card" href="coffee.html">
+          <img src="asserts/images/home-coffee.jpg" alt="Roasted coffee beans" loading="lazy" width="1200" height="900">
           <div class="feature-card-content">
             <h3>Coffee with character</h3>
             <p>Explore expressive blends and single-origin favourites.</p>
-            <span class="circle-arrow" aria-hidden="true">↗</span>
+            <span class="circle-arrow" aria-hidden="true"><span class="arrow"></span></span>
           </div>
         </a>
-        <a class="feature-card feature-card-equipment" href="equipment.html">
-          <img src="asserts/images/brewing-tools.svg" alt="" loading="lazy">
+        <a class="feature-card" href="equipment.html">
+          <img src="asserts/images/home-equipment.jpg" alt="Pour-over brewing equipment" loading="lazy" width="1200" height="900">
           <div class="feature-card-content">
             <h3>Make a better brew</h3>
-            <p>Thoughtful equipment for your daily ritual.</p>
-            <span class="circle-arrow" aria-hidden="true">↗</span>
+            <p>Equipment for your daily ritual.</p>
+            <span class="circle-arrow" aria-hidden="true"><span class="arrow"></span></span>
           </div>
         </a>
-        <a class="feature-card feature-card-events" href="events.html">
-          <img src="asserts/images/coffee-community.svg" alt="" loading="lazy">
+        <a class="feature-card" href="events.html">
+          <img src="asserts/images/home-events.jpg" alt="People at a coffee tasting" loading="lazy" width="1200" height="900">
           <div class="feature-card-content">
             <h3>Learn something new</h3>
             <p>Join tastings, classes and conversations around coffee.</p>
-            <span class="circle-arrow" aria-hidden="true">↗</span>
+            <span class="circle-arrow" aria-hidden="true"><span class="arrow"></span></span>
           </div>
         </a>
       </div>
     </section>
 
-    <section class="section feature-carousel-section">
-      <div class="container">
+    <section class="section-tight container">
+      <div class="carousel-shell">
         <div class="section-heading section-heading-row">
-          <div>
-            <h2>A few things we're <em>loving.</em></h2>
-          </div>
+          <h2>A few things we're <em>loving.</em></h2>
           <div class="carousel-controls" role="group" aria-label="Featured content controls">
-            <button class="icon-button" type="button" data-carousel-prev aria-label="Previous featured item">←</button>
-            <button class="icon-button" type="button" data-carousel-next aria-label="Next featured item">→</button>
+            <button class="icon-button" type="button" data-carousel-prev aria-label="Previous featured item"><span class="arrow arrow-l" aria-hidden="true"></span></button>
+            <button class="icon-button" type="button" data-carousel-next aria-label="Next featured item"><span class="arrow arrow-r" aria-hidden="true"></span></button>
           </div>
         </div>
         <div class="feature-carousel" data-carousel aria-roledescription="carousel" aria-label="Featured coffee, equipment and events" role="group">
           <article class="carousel-slide" data-slide aria-roledescription="slide" aria-label="1 of 3">
-            <div class="carousel-slide-image"><img src="asserts/images/coffee-beans.svg" alt="Coffee beans illustration" loading="lazy"></div>
+            <div class="carousel-slide-image"><img src="asserts/images/home-featured-mzuzu.jpg" alt="Roasted Mzuzu Highlands coffee beans" loading="lazy"></div>
             <div class="carousel-slide-copy">
               <h3>Mzuzu Highlands</h3>
               <p>A bright, balanced cup with notes of red apple, cocoa and orange peel. A welcoming everyday brew.</p>
-              <a class="text-link" href="coffee.html">Explore the coffee collection <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="coffee.html">Explore the coffee collection <span class="arrow" aria-hidden="true"></span></a>
             </div>
           </article>
           <article class="carousel-slide" data-slide aria-roledescription="slide" aria-label="2 of 3" hidden>
-            <div class="carousel-slide-image"><img src="asserts/images/brewing-tools.svg" alt="Manual coffee equipment illustration" loading="lazy"></div>
+            <div class="carousel-slide-image"><img src="asserts/images/home-featured-equipment.jpg" alt="Pour-over equipment on a counter" loading="lazy"></div>
             <div class="carousel-slide-copy">
               <h3>The slower pour</h3>
               <p>Build a calm morning ritual with simple, reliable pour-over equipment and a little practice.</p>
-              <a class="text-link" href="equipment.html">Shop brewing equipment <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="equipment.html">Shop brewing equipment <span class="arrow" aria-hidden="true"></span></a>
             </div>
           </article>
           <article class="carousel-slide" data-slide aria-roledescription="slide" aria-label="3 of 3" hidden>
-            <div class="carousel-slide-image"><img src="asserts/images/coffee-community.svg" alt="Coffee workshop illustration" loading="lazy"></div>
+            <div class="carousel-slide-image"><img src="asserts/images/home-featured-workshop.jpg" alt="A small-group pour-over workshop" loading="lazy"></div>
             <div class="carousel-slide-copy">
               <h3>Pour-over, from the ground up</h3>
               <p>A small-group introduction to grind size, water temperature and a more consistent cup.</p>
-              <a class="text-link" href="events.html">See upcoming workshops <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="events.html">See upcoming workshops <span class="arrow" aria-hidden="true"></span></a>
             </div>
           </article>
         </div>
@@ -152,21 +153,23 @@
       </div>
     </section>
 
-    <section class="section container split-section">
-      <div class="split-image"><img src="asserts/images/coffee-community.svg" alt="Illustration of a welcoming coffee tasting table" loading="lazy"></div>
-      <div class="split-copy">
-        <h2>Made for the <em>moments between.</em></h2>
-        <p>From first sip to last conversation, we believe coffee is better when it brings people together. Drop in, ask questions and discover something you didn't know you liked.</p>
-        <a class="button button-outline" href="events.html">Meet us at an event <span aria-hidden="true">↗</span></a>
+    <section class="section graphite">
+      <div class="container split-grid">
+        <div class="split-image"><img src="asserts/images/home-moments.jpg" alt="A welcoming coffee tasting table" loading="lazy" width="1200" height="900"></div>
+        <div>
+          <h2>Made for the <em>moments between.</em></h2>
+          <p>From first sip to last conversation, we believe coffee is better when it brings people together. Drop in, ask questions and discover something you didn't know you liked.</p>
+          <a class="button button-light" href="events.html">Meet us at an event <span class="arrow" aria-hidden="true"></span></a>
+        </div>
       </div>
     </section>
 
-    <section class="section community-section">
-      <div class="container community-grid">
+    <section class="section container">
+      <div class="community-grid">
         <div>
           <h2>A soundtrack for <em>slow sips.</em></h2>
           <p class="muted-copy">A coffeehouse jazz selection to keep you company while you brew, read or take five.</p>
-          <a class="text-link" href="https://open.spotify.com/playlist/3cE0rq3aa74D5VSe2GYLUw" target="_blank" rel="noopener noreferrer">Open the playlist on Spotify <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="https://open.spotify.com/playlist/3cE0rq3aa74D5VSe2GYLUw" target="_blank" rel="noopener noreferrer">Open the playlist on Spotify <span class="arrow" aria-hidden="true"></span></a>
         </div>
         <div class="spotify-widget">
           <iframe title="Coffeehouse Jazz: Cozy Instrumental Beats playlist on Spotify" src="https://open.spotify.com/embed/playlist/3cE0rq3aa74D5VSe2GYLUw?utm_source=generator" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -174,16 +177,19 @@
       </div>
     </section>
 
-    <section class="section container location-section">
-      <div class="location-copy">
-        <h2>Good coffee is <em>worth the trip.</em></h2>
-        <p>Our map panel is an illustrative Lilongwe-area preview for this prototype. Replace it with the verified shop address and pin before publishing.</p>
-        <a class="text-link" href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">Explore OpenStreetMap <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="map-widget">
-        <iframe title="Illustrative map preview of central Lilongwe" src="https://www.openstreetmap.org/export/embed.html?bbox=33.7705%2C-13.9710%2C33.7867%2C-13.9550&amp;layer=mapnik" loading="lazy"></iframe>
+    <section class="section-tight container">
+      <div class="location-grid">
+        <div>
+          <h2>Good coffee is <em>worth the trip.</em></h2>
+          <p class="muted-copy">Our map panel is an illustrative Lilongwe-area preview for this prototype. Replace it with the verified shop address and pin before publishing.</p>
+          <a class="text-link" href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">Explore OpenStreetMap <span class="arrow" aria-hidden="true"></span></a>
+        </div>
+        <div class="map-widget">
+          <iframe title="Illustrative map preview of central Lilongwe" src="https://www.openstreetmap.org/export/embed.html?bbox=33.7705%2C-13.9710%2C33.7867%2C-13.9550&amp;layer=mapnik" loading="lazy"></iframe>
+        </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
@@ -193,7 +199,7 @@
           <img class="brand-mark" src="asserts/images/bean-mark.svg" alt="">
           <span class="brand-name">BEAN <span>BOUTIQUE</span></span>
         </a>
-        <p>Thoughtful coffee for curious people. Come as you are; stay for another cup.</p>
+        <p>Coffee for curious people. Come as you are; stay for another cup.</p>
       </div>
       <div class="footer-links">
         <h2>Explore</h2>
@@ -211,13 +217,11 @@
     </div>
     <div class="container footer-bottom">
       <span>© <span data-current-year>2026</span> Bean Boutique. Prototype concept.</span>
-      <span>Made with care, brewed with patience.</span>
     </div>
   </footer>
-
   <dialog class="welcome-modal" id="welcome-modal" aria-labelledby="welcome-title">
-    <button class="modal-close" type="button" data-close-welcome aria-label="Close welcome offer">×</button>
-    <div class="modal-art"><img src="asserts/images/coffee-beans.svg" alt="" loading="lazy"></div>
+    <button class="modal-close" type="button" data-close-welcome aria-label="Close welcome offer"><span class="close-x" aria-hidden="true"></span></button>
+    <div class="modal-art"><img src="asserts/images/home-welcome-offer.jpg" alt="" loading="lazy"></div>
     <div class="modal-content">
       <h2 id="welcome-title">Take 10% off <em>your first order.</em></h2>
       <p>Join the Bean Boutique notes for new coffees, workshop dates and the occasional good offer.</p>

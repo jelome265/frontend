@@ -65,3 +65,23 @@ This report separates what was run from what was not. Items marked **Not run** a
 - Find bar tested on all six pages: highlighting, match count and clear all work.
 - Functional smoke test (headless Chromium): cart holds coffees and the espresso machine; events form fields are first name, last name, email and session; no page errors. The one console error is an offline DNS failure for an external embed.
 - Still not run: screen readers, a second browser, a mobile browser, and the online W3C service itself.
+
+## Taste pass (design-taste-frontend 2.5.1)
+
+Applied to the cupping-sheet build as the "client's own colours" path. The skill's full pipeline (palette deal, kit replacement, stock photo search) was not used, because it would replace the committed world.
+
+- Copy-lint (`--kind place`): 0 FAIL on all six pages. Virtue words reduced to budget; footer sign-off removed; the h1 is unchanged, and the category is named in the hero description.
+- Motion house rules: linked cards lift 2px; photographs zoom 1.03 inside their frame; buttons press on click; the hero enters once on load.
+- Gate (`gate.mjs`): armed, but the checkers could not start Chrome in this sandbox (`Chrome exited early`, zygote error). **GATE: ERROR, not run.** Equivalent checks were run manually: no horizontal overflow at 1440/390, no console errors, copy-lint clean.
+- Not met, by constraint: real photographs (no network to stock sources; client assets pending); real full-colour product icons (none available offline); a dealt moment on every page (the score-sheet fill is the home and coffee moment).
+
+## Apple HIG pass (apple-design-skill)
+
+Applied the parts of the Human Interface Guidelines that transfer to a web prototype. Native-only guidance (tab bars, sheets, ornaments, Liquid Glass, SF Symbols, system colours) does not apply and is not used.
+
+- Accessibility: text enlargement to 200% checked on all six pages at 390 and 1440 widths: zero horizontal overflow after fixes (footer wrap, catalogue controls, section headings, mobile headline capped with `min()`).
+- Contrast: body text 4.5:1 or higher; an Increase Contrast variant (`prefers-contrast: more`) strengthens rules, borders and muted text.
+- Colour not alone: score bars carry word values (Low, Medium, High); the featured plan carries a ribbon as well as colour.
+- Destructive actions: "Clear bag" and "Remove" use a distinct red and "Clear bag" asks for confirmation before deleting.
+- Touch targets: 44px minimum on buttons, quantity controls, menu items and close.
+- Motion: reduced motion stops the ticker, hover lifts and entrance animation.

@@ -4,6 +4,11 @@ Every image, font and third-party embed in the Bean Boutique prototype, with its
 
 ## Local images (`asserts/images/`)
 
+As of this pass, all illustrations have been removed. Every product, page and home slot points to a named photo that the owner supplies. The full list with exact names is in `asserts/images/REQUIRED-IMAGES.txt` (27 photos). Only `bean-mark.svg` remains as a vector.
+
+The previous illustration table below is retained as history only.
+
+
 All seven files are SVG, contain no `<text>` elements and reference no external resources (the only URL is the SVG namespace). They were created for this prototype, as stated in `asserts/images/README.md`.
 
 | File | Used on | Purpose | Bytes | Source | Licence / status |
@@ -20,7 +25,18 @@ Stand-in product imagery: product cards reuse the same illustrations under diffe
 
 ## Fonts
 
-No font files are bundled. The stylesheet uses system stacks only (`Georgia`, `Times New Roman`, `Aptos`, `Segoe UI`, `Arial`). See `asserts/fonts/README.md`.
+Self-hosted, SIL Open Font License 1.1 (licence texts in `asserts/fonts/`):
+
+| File | Family | Use |
+| --- | --- | --- |
+| `archivo-latin-wght.woff2` | Archivo (variable weight) | Display and body |
+| `martian-mono-latin-400.woff2`, `-500`, `-700` | Martian Mono | Data only: scores, prices, dates, times |
+
+Source: `@fontsource-variable/archivo` and `@fontsource/martian-mono` (npm). Redistribution is permitted under the OFL.
+
+## Drawn icons
+
+All arrows, the close mark, the search glyph and decorative dots are drawn in CSS (`styles/style.css`). No icon font or unicode glyph is used as an icon.
 
 ## Third-party embeds
 

@@ -47,6 +47,8 @@ The repository is a static website hosted on Vercel. The shop's real address, ev
 
 ## Brand Commitments
 
+- The visual identity was redesigned at the owner's request (see DESIGN.md). Factual copy, product truth, prices, events and functions were kept; the palette, typography and layout were replaced.
+
 - Product name: Bean Boutique.
 - Existing repository assets include a local SVG brand mark and coffee-related illustrations. Their source and licensing details still need a complete asset register.
 - Existing copy uses a welcoming, coffee-focused voice. Preserve the factual meaning of the content; do not invent business claims or customer proof.
