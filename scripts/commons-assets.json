@@ -1,0 +1,89 @@
+{
+  "home-hero-desktop.jpg": {
+    "query": "coffee beans specialty roastery interior"
+  },
+  "home-hero-mobile.jpg": {
+    "query": "barista pouring coffee closeup"
+  },
+  "home-coffee.jpg": {
+    "query": "roasted coffee beans macro"
+  },
+  "home-equipment.jpg": {
+    "query": "pour over coffee equipment"
+  },
+  "home-events.jpg": {
+    "query": "coffee tasting cups table"
+  },
+  "home-featured-mzuzu.jpg": {
+    "query": "roasted coffee beans wooden scoop"
+  },
+  "home-featured-equipment.jpg": {
+    "query": "pour over brewing coffee"
+  },
+  "home-featured-workshop.jpg": {
+    "query": "barista pour over workshop"
+  },
+  "home-moments.jpg": {
+    "query": "coffee shop people cups table"
+  },
+  "home-welcome-offer.jpg": {
+    "query": "latte coffee beans cup"
+  },
+  "coffee-hero.jpg": {
+    "query": "coffee beans roasted macro"
+  },
+  "coffee-dedza-washed.jpg": {
+    "query": "green coffee beans"
+  },
+  "coffee-zomba-honey.jpg": {
+    "query": "coffee beans honey process"
+  },
+  "coffee-lake-blend.jpg": {
+    "query": "espresso coffee cup beans"
+  },
+  "coffee-mzuzu-highlands.jpg": {
+    "query": "coffee beans in scoop"
+  },
+  "coffee-shire-espresso.jpg": {
+    "query": "espresso crema cup"
+  },
+  "coffee-nyika-natural.jpg": {
+    "query": "coffee cherries branch"
+  },
+  "coffee-kuche-decaf.jpg": {
+    "query": "decaf coffee beans cup"
+  },
+  "equipment-hero.jpg": {
+    "query": "espresso machine grinder counter"
+  },
+  "equipment-espresso-machine.jpg": {
+    "query": "espresso machine portafilter"
+  },
+  "equipment-french-press.jpg": {
+    "query": "french press coffee glass"
+  },
+  "equipment-pour-over-kit.jpg": {
+    "query": "pour over coffee dripper server"
+  },
+  "equipment-hand-grinder.jpg": {
+    "query": "manual coffee grinder"
+  },
+  "equipment-gooseneck-kettle.jpg": {
+    "query": "gooseneck kettle pouring coffee"
+  },
+  "events-hero.jpg": {
+    "query": "coffee shop people gathering"
+  },
+  "subscriptions-hero.jpg": {
+    "query": "coffee beans coffee bag"
+  },
+  "subscription-explorer.jpg": {
+    "query": "coffee bag cup beans"
+  },
+  "subscription-enthusiast.jpg": {
+    "query": "coffee brewing equipment"
+  },
+  "subscription-household.jpg": {
+    "query": "coffee cups table beans"
+  }
+}

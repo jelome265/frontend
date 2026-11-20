@@ -57,10 +57,15 @@ The `asserts/` directory spelling follows the requested project structure. The i
 ## Design documentation
 
 - [PRODUCT.md](PRODUCT.md) and [DESIGN.md](DESIGN.md): product context and the visual system.
+- [docs/PHOTO-LED-HERO-DIRECTION.md](docs/PHOTO-LED-HERO-DIRECTION.md): owner-approved full-bleed photographic hero and editorial website direction, research references, and acceptance criteria.
 - [docs/design-decisions.md](docs/design-decisions.md): how the Impeccable, Taste and Apple Design guidance was applied, and what was not.
 - [docs/asset-register.md](docs/asset-register.md): every image, font and third-party embed, with status.
 - [docs/verification-report.md](docs/verification-report.md): what was checked, the results, and what remains outstanding.
 - [docs/CHANGELOG.md](docs/CHANGELOG.md): the latest design refinement pass.
+
+## Photography assets
+
+Wikimedia Commons image manifest: `scripts/commons-assets.json`. Downloader and per-image licence validation: `scripts/download_commons_assets.py`. GitHub Actions workflow: `.github/workflows/commons-photography.yml`. Generated creator, source and licence credits: `asserts/images/IMAGE-CREDITS.md`. The workflow downloads locally stored JPEGs and opens a pull request. Photographs are illustrative stock assets, not evidence of actual inventory, product origin, staff or business premises.
 
 ## Prototype integrations
 
