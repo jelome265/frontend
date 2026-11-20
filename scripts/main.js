@@ -514,8 +514,18 @@
 
     if (!alreadySeen) {
       window.setTimeout(function () {
-        if (!dialog.open) dialog.showModal();
+        // Re-check storage when the timer fires: a visitor may have dismissed the dialog already.
+        if (dialog.open || hasSeenWelcome()) return;
+        dialog.showModal();
       }, 800);
+    }
+
+    function hasSeenWelcome() {
+      try {
+        return window.sessionStorage.getItem("bean-boutique-welcome-seen") === "yes";
+      } catch (error) {
+        return false;
+      }
     }
 
     function closeDialog() {
