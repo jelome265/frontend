@@ -112,6 +112,15 @@ class CommonsDownloaderTests(unittest.TestCase):
         anonymous = dict(record, artist="Creator not identified")
         self.assertFalse(downloader.source_record_is_valid(anonymous))
 
+    def test_public_domain_record_does_not_require_creator_attribution(self):
+        record = dict(
+            self.valid_record(),
+            artist="Creator not identified",
+            licence="Public domain",
+            licence_url="https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
+        )
+        self.assertTrue(downloader.source_record_is_valid(record))
+
     def test_find_skips_cc_by_records_without_creator_metadata(self):
         def info(artist):
             metadata = {
