@@ -144,10 +144,122 @@ class CommonsDownloaderTests(unittest.TestCase):
                 }
             }
         }
-        with mock.patch.object(downloader, "get", return_value=FakeResponse(json_data=payload)):
+        with mock.patch.object(downloader, "get", return_value=FakeResponse(json_data=payload)) as get_mock:
             record = downloader.find("coffee")
+        self.assertEqual(get_mock.call_args.kwargs["params"]["gsrlimit"], 100)
         self.assertEqual(record["title"], "File:attributed.jpg")
         self.assertEqual(record["artist"], "Jane Example")
+
+    def test_find_for_asset_tries_fallbacks_in_order_after_no_accepted_match(self):
+        record = self.valid_record()
+        item = {
+            "query": "coffee beans specialty roastery interior",
+            "fallback_queries": ["coffee roastery interior", "coffee shop coffee beans"],
+        }
+        with mock.patch.object(
+            downloader,
+            "find",
+            side_effect=[downloader.NoAcceptedImageError("no result"), record],
+        ) as find_mock:
+            result = downloader.find_for_asset(item)
+        self.assertEqual(result, record)
+        self.assertEqual(
+            [call.args[0] for call in find_mock.call_args_list],
+            [item["query"], item["fallback_queries"][0]],
+        )
+
+    def test_find_for_asset_does_not_mask_api_or_transport_errors(self):
+        item = {"query": "coffee beans", "fallback_queries": ["roasted coffee"]}
+        with mock.patch.object(
+            downloader, "find", side_effect=RuntimeError("Commons API unavailable")
+        ) as find_mock:
+            with self.assertRaisesRegex(RuntimeError, "Commons API unavailable"):
+                downloader.find_for_asset(item)
+        find_mock.assert_called_once_with("coffee beans")
+
+    def test_main_does_not_persist_partial_assets_or_source_records(self):
+        record = self.valid_record()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            scripts_dir = root / "scripts"
+            images_dir = root / "asserts" / "images"
+            scripts_dir.mkdir()
+            images_dir.mkdir(parents=True)
+            manifest_path = scripts_dir / "commons-assets.json"
+            lock_path = scripts_dir / "commons-assets.lock.json"
+            credits_path = images_dir / "IMAGE-CREDITS.md"
+            manifest_path.write_text(
+                json.dumps({
+                    "coffee-a.jpg": {"query": "coffee beans"},
+                    "coffee-b.jpg": {"query": "roasted coffee"},
+                }),
+                encoding="utf-8",
+            )
+
+            def write_valid_jpeg(_record, destination):
+                destination.write_bytes(self.jpeg_bytes())
+
+            with (
+                mock.patch.object(downloader, "ROOT", root),
+                mock.patch.object(downloader, "OUT", images_dir),
+                mock.patch.object(downloader, "MANIFEST", manifest_path),
+                mock.patch.object(downloader, "LOCK", lock_path),
+                mock.patch.object(downloader, "CREDITS", credits_path),
+                mock.patch.object(
+                    downloader,
+                    "find_for_asset",
+                    side_effect=[record, RuntimeError("Commons API unavailable")],
+                ),
+                mock.patch.object(downloader, "download", side_effect=write_valid_jpeg),
+                mock.patch("sys.argv", ["download_commons_assets.py"]),
+            ):
+                result = downloader.main()
+
+            self.assertEqual(result, 1)
+            self.assertFalse(lock_path.exists())
+            self.assertFalse(credits_path.exists())
+            self.assertFalse((images_dir / "coffee-a.jpg").exists())
+
+    def test_main_persists_source_records_only_after_complete_validation(self):
+        record = self.valid_record()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            scripts_dir = root / "scripts"
+            images_dir = root / "asserts" / "images"
+            scripts_dir.mkdir()
+            images_dir.mkdir(parents=True)
+            manifest_path = scripts_dir / "commons-assets.json"
+            lock_path = scripts_dir / "commons-assets.lock.json"
+            credits_path = images_dir / "IMAGE-CREDITS.md"
+            manifest_path.write_text(
+                json.dumps({
+                    "coffee-a.jpg": {"query": "coffee beans"},
+                    "coffee-b.jpg": {"query": "roasted coffee"},
+                }),
+                encoding="utf-8",
+            )
+
+            def write_valid_jpeg(_record, destination):
+                destination.write_bytes(self.jpeg_bytes())
+
+            with (
+                mock.patch.object(downloader, "ROOT", root),
+                mock.patch.object(downloader, "OUT", images_dir),
+                mock.patch.object(downloader, "MANIFEST", manifest_path),
+                mock.patch.object(downloader, "LOCK", lock_path),
+                mock.patch.object(downloader, "CREDITS", credits_path),
+                mock.patch.object(downloader, "find_for_asset", return_value=record),
+                mock.patch.object(downloader, "download", side_effect=write_valid_jpeg),
+                mock.patch("sys.argv", ["download_commons_assets.py"]),
+            ):
+                result = downloader.main()
+
+            self.assertEqual(result, 0)
+            lock = json.loads(lock_path.read_text(encoding="utf-8"))
+            self.assertEqual(set(lock), {"coffee-a.jpg", "coffee-b.jpg"})
+            self.assertTrue(downloader.valid_jpeg(images_dir / "coffee-a.jpg"))
+            self.assertTrue(downloader.valid_jpeg(images_dir / "coffee-b.jpg"))
+            self.assertTrue(credits_path.is_file())
 
     def test_download_rejects_redirects_outside_commons_upload_host(self):
         record = self.valid_record()
@@ -195,6 +307,9 @@ class CommonsDownloaderTests(unittest.TestCase):
             self.assertEqual(Path(filename).name, filename)
             self.assertTrue(filename.endswith(".jpg"))
             self.assertTrue(item.get("query", "").strip())
+            fallbacks = item.get("fallback_queries", [])
+            self.assertIsInstance(fallbacks, list)
+            self.assertTrue(all(isinstance(query, str) and query.strip() for query in fallbacks))
 
 
 if __name__ == "__main__":
