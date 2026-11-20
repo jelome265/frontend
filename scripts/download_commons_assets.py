@@ -43,13 +43,13 @@ def retry_delay(response, attempt):
     retry_after = response.headers.get("Retry-After") if response is not None else None
     if retry_after:
         try:
-            return min(300.0, max(1.0, float(retry_after)))
+            return max(1.0, float(retry_after))
         except ValueError:
             try:
                 retry_at = email.utils.parsedate_to_datetime(retry_after)
                 if retry_at.tzinfo is None:
                     retry_at = retry_at.replace(tzinfo=timezone.utc)
-                return min(300.0, max(1.0, (retry_at - datetime.now(timezone.utc)).total_seconds()))
+                return max(1.0, (retry_at - datetime.now(timezone.utc)).total_seconds())
             except (TypeError, ValueError, OverflowError):
                 pass
     return min(180.0, 5.0 * (2 ** (attempt - 1))) + random.uniform(0.0, 1.0)
@@ -87,6 +87,39 @@ def get(url, *, params=None, timeout=(15, 90)):
     raise RuntimeError(f"Request failed after {MAX_ATTEMPTS} attempts: {url}")
 
 
+def source_record_is_valid(record):
+    if not isinstance(record, dict):
+        return False
+
+    title = clean(record.get("title"))
+    artist = clean(record.get("artist"))
+    licence = clean(record.get("licence"))
+    image_url = urlparse(str(record.get("image_url") or ""))
+    page_url = urlparse(str(record.get("page_url") or ""))
+    licence_url = urlparse(str(record.get("licence_url") or ""))
+
+    if not title or not artist or licence not in ALLOWED:
+        return False
+    if image_url.scheme != "https" or image_url.hostname != "upload.wikimedia.org":
+        return False
+    if page_url.scheme != "https" or page_url.hostname != "commons.wikimedia.org":
+        return False
+    if licence_url.scheme != "https":
+        return False
+
+    licence_host = (licence_url.hostname or "").lower()
+    if licence == "Public domain":
+        if licence_host != "commons.wikimedia.org":
+            return False
+    elif licence_host not in {"creativecommons.org", "www.creativecommons.org"}:
+        return False
+
+    # CC BY and CC BY-SA require attribution; do not publish an anonymous record.
+    if licence.startswith("CC BY") and artist == "Creator not identified":
+        return False
+    return True
+
+
 def find(query):
     response = get(API, params={
         "action": "query",
@@ -122,7 +155,7 @@ def find(query):
         licence_url = clean(metadata.get("LicenseUrl", {}).get("value"))
         if licence != "Public domain" and not licence_url.startswith("https://"):
             continue
-        return {
+        record = {
             "title": page["title"],
             "page_url": page_url,
             "image_url": image_url,
@@ -130,6 +163,8 @@ def find(query):
             "licence": licence,
             "licence_url": licence_url or "https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia",
         }
+        if source_record_is_valid(record):
+            return record
     raise RuntimeError(f"No accepted JPEG licence found for search: {query}")
 
 
@@ -147,7 +182,13 @@ def valid_jpeg(path):
 
 
 def download(record, destination):
+    if not source_record_is_valid(record):
+        raise ValueError("pinned Commons source metadata is invalid")
+
     response = get(record["image_url"], timeout=(15, 120))
+    final_url = urlparse(getattr(response, "url", "") or record["image_url"])
+    if final_url.scheme != "https" or final_url.hostname != "upload.wikimedia.org":
+        raise ValueError("image download redirected outside upload.wikimedia.org")
     data = response.content
     if not (MIN_IMAGE_BYTES <= len(data) <= MAX_IMAGE_BYTES):
         raise ValueError(f"image size outside accepted range: {len(data)} bytes")
@@ -193,8 +234,11 @@ def main():
         for filename in manifest:
             if filename not in lock:
                 errors.append(f"{filename}: missing pinned Commons metadata in {LOCK.relative_to(ROOT)}")
-            elif not valid_jpeg(OUT / filename):
-                errors.append(f"{filename}: missing or invalid JPEG")
+            else:
+                if not source_record_is_valid(lock[filename]):
+                    errors.append(f"{filename}: invalid pinned Commons source metadata")
+                if not valid_jpeg(OUT / filename):
+                    errors.append(f"{filename}: missing or invalid JPEG")
         if not CREDITS.is_file():
             errors.append("missing asserts/images/IMAGE-CREDITS.md")
         else:
@@ -202,6 +246,15 @@ def main():
             for filename in manifest:
                 if f"## {filename}" not in credits_text:
                     errors.append(f"{filename}: missing attribution entry")
+                    continue
+                record = lock.get(filename, {})
+                expected = (
+                    f"- Creator: {markdown_escape(record.get('artist', ''))}",
+                    f"- Source: [{markdown_escape(record.get('title', ''))}]({record.get('page_url', '')})",
+                    f"- Licence: [{markdown_escape(record.get('licence', ''))}]({record.get('licence_url', '')})",
+                )
+                if any(line not in credits_text for line in expected):
+                    errors.append(f"{filename}: attribution does not match pinned source metadata")
         if errors:
             print("\n".join(errors), file=sys.stderr)
             return 1
@@ -213,11 +266,13 @@ def main():
         temp_dir = Path(temporary)
         for filename, item in manifest.items():
             try:
-                record = lock.get(filename)
-                if record is None:
+                if filename in lock:
+                    record = lock[filename]
+                    if not source_record_is_valid(record):
+                        raise ValueError("pinned Commons source metadata is invalid")
+                else:
                     record = find(item["query"])
-                    download(record, temp_dir / filename)
-                elif not valid_jpeg(OUT / filename):
+                if not valid_jpeg(OUT / filename):
                     download(record, temp_dir / filename)
                 resolved[filename] = record
                 print(f"Prepared {filename}")
