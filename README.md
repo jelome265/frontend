@@ -65,7 +65,7 @@ The `asserts/` directory spelling follows the requested project structure. The i
 
 ## Photography assets
 
-Wikimedia Commons image manifest: `scripts/commons-assets.json`. Downloader and per-image licence validation: `scripts/download_commons_assets.py`. GitHub Actions workflow: `.github/workflows/commons-photography.yml`. Generated creator, source and licence credits: `asserts/images/IMAGE-CREDITS.md`. The workflow downloads locally stored JPEGs and opens a pull request. Photographs are illustrative stock assets, not evidence of actual inventory, product origin, staff or business premises.
+Wikimedia Commons image manifest: `scripts/commons-assets.json`. Downloader and per-image licence validation: `scripts/download_commons_assets.py`. GitHub Actions workflow: `.github/workflows/commons-photography.yml`. Generated creator, source and licence credits: `asserts/images/IMAGE-CREDITS.md`. When manually dispatched, the workflow searches up to 100 Commons results per query, validates and downloads all manifest JPEGs, then commits the complete asset set, source lock and attribution credits directly to `main`. It aborts without publishing partial assets if any entry fails. Photographs are illustrative stock assets, not evidence of actual inventory, product origin, staff or business premises.
 
 ## Prototype integrations
 
