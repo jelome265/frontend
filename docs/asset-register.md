@@ -4,7 +4,7 @@ Every image, font and third-party embed in the Bean Boutique prototype, with its
 
 ## Local images (`asserts/images/`)
 
-As of this pass, all illustrations have been removed. Every product, page and home slot points to a named photo that the owner supplies. The full list with exact names is in `asserts/images/REQUIRED-IMAGES.txt` (27 photos). Only `bean-mark.svg` remains as a vector.
+Photographs are curated from Wikimedia Commons and downloaded locally by `scripts/download_commons_assets.py`. The script validates reusable licences and records creator, source and licence details in `asserts/images/IMAGE-CREDITS.md`. Exact filenames are listed in `asserts/images/REQUIRED-IMAGES.txt`.
 
 The previous illustration table below is retained as history only.
 
