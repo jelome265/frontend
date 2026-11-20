@@ -36,4 +36,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh pr create --base main --head "${GITHUB_REF_NAME}" --title 'feat: photo-led Bean Boutique redesign' --body 'Adds locally stored Wikimedia Commons JPEGs with creator, source and licence attribution. No Unsplash scraping or remote image dependency.'
+          if ! gh pr view "${GITHUB_REF_NAME}" --json number >/dev/null 2>&1; then
+            gh pr create --base main --head "${GITHUB_REF_NAME}" --title 'feat: photo-led Bean Boutique redesign' --body 'Adds locally stored Wikimedia Commons JPEGs with creator, source and licence attribution. No Unsplash scraping or remote image dependency.'
+          else
+            echo 'Pull request already exists; downloaded assets have been pushed to its branch.'
+          fi
