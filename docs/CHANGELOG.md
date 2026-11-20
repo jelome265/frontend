@@ -1,5 +1,15 @@
 # Changelog
 
+## Homepage system applied to every page (2026-11-20)
+
+- Every page now uses the homepage system: full-bleed licensed photo hero with the transparent overlay header, the same eyebrow, headline, copy and caramel action pattern.
+- The announcement bar and header share one overlay layer (`.site-top`), so the header no longer overlaps the find bar.
+- "Find on this page" moved below the hero and restyled as a clean field with no rule lines.
+- Catalogue search and filter sit on one aligned row.
+- Removed the score-bar stat blocks from coffee product cards.
+- The lead coffee card uses a landscape photo with the copy centred beside it.
+- Fixed: welcome dialog reopened after dismissal when closed before its 800ms timer; cart summary widened the page on phones; cart heading controls wrapped below the title; mobile find-bar label alignment.
+
 ## Premium redesign: espresso, caramel and champagne (2026-11-19)
 
 - Replaced the cobalt cupping-sheet visual system with the directive palette (espresso, coffee, caramel, taupe, champagne, charcoal, white) as CSS custom properties.

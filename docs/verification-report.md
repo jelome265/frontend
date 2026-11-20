@@ -103,3 +103,14 @@ Tooling: Impeccable (`npx skills add pbakaus/impeccable`), Taste (`design-taste-
 Not run in this pass: W3C Nu HTML Checker (needs network access to validator.w3.org), screen-reader testing, real-device and second-browser testing.
 
 Outstanding: all 27 required photographs in `asserts/images/REQUIRED-IMAGES.txt` are missing. Until they are added, image slots show the palette ground and the layout is verified with that fallback.
+
+## Homepage-system pass verification (2026-11-20)
+
+| Check | Result |
+|---|---|
+| Horizontal overflow, six pages at 1440 and 390 | 0px on every page |
+| Functional browser suite (Playwright, Chromium) | 14/14 pass |
+| JavaScript errors | None (offline Spotify, OpenStreetMap and Turnstile requests excluded) |
+| `node --check scripts/main.js` | Pass |
+| Tag balance, six pages | No unclosed or mismatched tags |
+| Impeccable detector | Remaining findings: flush-edge heuristics on intentional full-bleed frames, the homepage eyebrow chip, and low-contrast readings on the header overlay. Pixel sampling of the rendered header shows a dark background (about #22160E), so white text is well above 4.5:1. The detector samples a pre-load image ground. Accepted as false positives |
