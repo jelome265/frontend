@@ -120,13 +120,17 @@ def source_record_is_valid(record):
     return True
 
 
+class NoAcceptedImageError(RuntimeError):
+    """Raised when a Commons search has no source meeting our licence policy."""
+
+
 def find(query):
     response = get(API, params={
         "action": "query",
         "generator": "search",
         "gsrsearch": query + " filemime:jpeg",
         "gsrnamespace": 6,
-        "gsrlimit": 30,
+        "gsrlimit": 100,
         "prop": "imageinfo",
         "iiprop": "url|mime|extmetadata",
         "format": "json",
@@ -165,7 +169,33 @@ def find(query):
         }
         if source_record_is_valid(record):
             return record
-    raise RuntimeError(f"No accepted JPEG licence found for search: {query}")
+    raise NoAcceptedImageError(f"No accepted JPEG licence found for search: {query}")
+
+
+def find_for_asset(item):
+    """Try the primary search and approved broader fallbacks in manifest order."""
+    primary = item.get("query")
+    fallbacks = item.get("fallback_queries", [])
+    if not isinstance(primary, str) or not primary.strip():
+        raise ValueError("asset manifest entry has no valid primary query")
+    if not isinstance(fallbacks, list) or any(
+        not isinstance(query, str) or not query.strip() for query in fallbacks
+    ):
+        raise ValueError("asset fallback_queries must be a list of non-empty strings")
+
+    queries = list(dict.fromkeys([primary, *fallbacks]))
+    failures = []
+    for query in queries:
+        try:
+            return find(query)
+        except NoAcceptedImageError as exc:
+            failures.append(str(exc))
+
+    attempted = "; ".join(repr(query) for query in queries)
+    raise NoAcceptedImageError(
+        f"No accepted JPEG licence found for any query ({attempted}); "
+        + " | ".join(failures)
+    )
 
 
 def valid_jpeg(path):
@@ -271,7 +301,7 @@ def main():
                     if not source_record_is_valid(record):
                         raise ValueError("pinned Commons source metadata is invalid")
                 else:
-                    record = find(item["query"])
+                    record = find_for_asset(item)
                 if not valid_jpeg(OUT / filename):
                     download(record, temp_dir / filename)
                 resolved[filename] = record
@@ -279,6 +309,18 @@ def main():
             except Exception as exc:
                 errors.append(f"{filename}: {exc}")
                 print(f"Failed {filename}: {exc}", file=sys.stderr, flush=True)
+
+        # Re-validate the complete resolved set before publishing any image,
+        # lock entry or attribution record.
+        if not errors:
+            for filename in manifest:
+                record = resolved.get(filename)
+                staged = temp_dir / filename
+                candidate = staged if staged.exists() else OUT / filename
+                if not source_record_is_valid(record):
+                    errors.append(f"{filename}: source metadata failed final validation")
+                if not valid_jpeg(candidate):
+                    errors.append(f"{filename}: staged or existing image failed final JPEG validation")
 
         if errors:
             print(

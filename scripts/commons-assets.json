@@ -1,9 +1,19 @@
 {
   "home-hero-desktop.jpg": {
-    "query": "coffee beans specialty roastery interior"
+    "query": "coffee beans specialty roastery interior",
+    "fallback_queries": [
+      "coffee roastery interior",
+      "coffee roasting equipment interior",
+      "coffee shop interior coffee beans"
+    ]
   },
   "home-hero-mobile.jpg": {
-    "query": "barista pouring coffee closeup"
+    "query": "barista pouring coffee closeup",
+    "fallback_queries": [
+      "barista pouring coffee",
+      "barista making pour over coffee",
+      "coffee brewing close up"
+    ]
   },
   "home-coffee.jpg": {
     "query": "roasted coffee beans macro"
@@ -15,13 +25,23 @@
     "query": "coffee tasting cups table"
   },
   "home-featured-mzuzu.jpg": {
-    "query": "roasted coffee beans wooden scoop"
+    "query": "roasted coffee beans wooden scoop",
+    "fallback_queries": [
+      "roasted coffee beans",
+      "coffee beans scoop",
+      "coffee beans wooden bowl"
+    ]
   },
   "home-featured-equipment.jpg": {
     "query": "pour over brewing coffee"
   },
   "home-featured-workshop.jpg": {
-    "query": "barista pour over workshop"
+    "query": "barista pour over workshop",
+    "fallback_queries": [
+      "coffee brewing workshop",
+      "barista training coffee",
+      "pour over coffee demonstration"
+    ]
   },
   "home-moments.jpg": {
     "query": "coffee shop people cups table"
@@ -36,7 +56,12 @@
     "query": "green coffee beans"
   },
   "coffee-zomba-honey.jpg": {
-    "query": "coffee beans honey process"
+    "query": "coffee beans honey process",
+    "fallback_queries": [
+      "coffee beans drying",
+      "coffee cherries drying beds",
+      "coffee processing beans"
+    ]
   },
   "coffee-lake-blend.jpg": {
     "query": "espresso coffee cup beans"
@@ -51,10 +76,20 @@
     "query": "coffee cherries branch"
   },
   "coffee-kuche-decaf.jpg": {
-    "query": "decaf coffee beans cup"
+    "query": "decaf coffee beans cup",
+    "fallback_queries": [
+      "roasted coffee beans cup",
+      "coffee beans close up",
+      "coffee cup beans"
+    ]
   },
   "equipment-hero.jpg": {
-    "query": "espresso machine grinder counter"
+    "query": "espresso machine grinder counter",
+    "fallback_queries": [
+      "espresso machine",
+      "espresso machine coffee grinder",
+      "coffee machine counter"
+    ]
   },
   "equipment-espresso-machine.jpg": {
     "query": "espresso machine portafilter"
@@ -63,7 +98,12 @@
     "query": "french press coffee glass"
   },
   "equipment-pour-over-kit.jpg": {
-    "query": "pour over coffee dripper server"
+    "query": "pour over coffee dripper server",
+    "fallback_queries": [
+      "pour over coffee dripper",
+      "coffee dripper server",
+      "manual pour over coffee brewing"
+    ]
   },
   "equipment-hand-grinder.jpg": {
     "query": "manual coffee grinder"
