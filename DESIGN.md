@@ -52,7 +52,7 @@ Drawn in CSS: arrows are a rotated corner, the close mark is two bars, the searc
 
 ## Photography
 
-The approved homepage direction is photo-led: one full-bleed coffee photograph fills the entire hero, with HTML text overlaid on the image. See [the photo-led editorial direction](docs/PHOTO-LED-HERO-DIRECTION.md) for image art direction, crop, overlay, responsive behaviour, and acceptance criteria. The asset register and required-image manifest currently record photography as outstanding; do not claim the photo-led hero is complete until approved, licensed photography has been supplied and verified.
+The approved homepage direction is photo-led: one full-bleed coffee photograph fills the entire hero, with HTML text overlaid on the image. See [the photo-led editorial direction](docs/PHOTO-LED-HERO-DIRECTION.md) for image art direction, crop, overlay, responsive behaviour, and acceptance criteria. Wikimedia Commons photographs are downloaded locally by `scripts/download_commons_assets.py`; creator, source and licence details are recorded in `asserts/images/IMAGE-CREDITS.md`.
 
 ## Accessibility
 
