@@ -74,13 +74,12 @@ def get(url, *, params=None, timeout=(15, 90)):
                 flush=True,
             )
         except requests.RequestException as exc:
-            if response is None or response.status_code not in RETRYABLE:
-                if attempt == MAX_ATTEMPTS:
-                    raise
-                delay = min(180.0, 5.0 * (2 ** (attempt - 1))) + random.uniform(0.0, 1.0)
-                print(f"Request error ({exc}); retry after {delay:.1f}s", file=sys.stderr, flush=True)
-            else:
+            if response is not None and response.status_code not in RETRYABLE:
                 raise
+            if attempt == MAX_ATTEMPTS:
+                raise
+            delay = min(180.0, 5.0 * (2 ** (attempt - 1))) + random.uniform(0.0, 1.0)
+            print(f"Request error ({exc}); retry after {delay:.1f}s", file=sys.stderr, flush=True)
         finally:
             if response is not None:
                 response.close()
@@ -217,7 +216,8 @@ def main():
                 record = lock.get(filename)
                 if record is None:
                     record = find(item["query"])
-                if not valid_jpeg(OUT / filename):
+                    download(record, temp_dir / filename)
+                elif not valid_jpeg(OUT / filename):
                     download(record, temp_dir / filename)
                 resolved[filename] = record
                 print(f"Prepared {filename}")
