@@ -1,11 +1,10 @@
-name: Download licensed Commons photography and open PR
+name: Download licensed Commons photography and push to main
 
 on:
   workflow_dispatch:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: commons-photography-assets
@@ -20,13 +19,6 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-
-      - name: Create isolated asset branch
-        id: branch
-        run: |
-          branch="assets/commons-photography-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          git switch -c "$branch"
-          echo "name=$branch" >> "$GITHUB_OUTPUT"
 
       - name: Set up Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
@@ -47,32 +39,28 @@ jobs:
           python scripts/download_commons_assets.py
           python scripts/download_commons_assets.py --check
 
-      - name: Commit and push assets
+      - name: Commit and push assets directly to main
         id: commit
-        env:
-          ASSET_BRANCH: ${{ steps.branch.outputs.name }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
           git add scripts/commons-assets.lock.json asserts/images/*.jpg asserts/images/IMAGE-CREDITS.md
           git diff --cached --check
+
           if git diff --cached --quiet; then
             echo 'changed=false' >> "$GITHUB_OUTPUT"
-            echo 'No asset changes detected; no pull request is needed.'
+            echo 'No asset changes detected; main is already up to date.'
             exit 0
           fi
-          git commit -m 'assets: add licensed Wikimedia Commons photography'
-          git push origin "HEAD:$ASSET_BRANCH"
-          echo 'changed=true' >> "$GITHUB_OUTPUT"
 
-      - name: Open pull request
-        if: steps.commit.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          ASSET_BRANCH: ${{ steps.branch.outputs.name }}
-        run: |
-          gh pr create \
-            --base main \
-            --head "$ASSET_BRANCH" \
-            --title 'assets: add licensed Bean Boutique photography' \
-            --body 'Adds locally stored Wikimedia Commons JPEGs, a pinned source lock, and creator/source/licence attribution. The downloader uses bounded retries for rate limits and transient server errors. All assets are validated before any files are published. This PR is generated from the latest main branch.'
+          git switch -c "assets/commons-photography-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git commit -m 'assets: add licensed Wikimedia Commons photography'
+
+          # Rebase the generated asset commit onto the latest main. Any conflict
+          # fails closed; the final push is non-force and must be a fast-forward.
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:refs/heads/main
+
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
